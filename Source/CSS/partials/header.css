@@ -1,0 +1,30 @@
+
+header {
+    display: flex;
+    justify-content: space-between;
+    min-width: 600px; /* Cambiar esto por un media query despues que ajuste la pantalla */
+    background-color: rgb(60, 60, 60)
+}
+
+header div {
+    margin: 2em 10em 2em;
+}
+
+header img {
+    height: auto;
+    width: 100%;
+    min-width: 200px;
+}
+
+header nav {
+    display: flex;
+    margin: 0 10em 0;
+    align-items: center;
+    gap: 15px;
+}
+
+header a {
+    font-size: 6em;
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+}

@@ -1,4 +1,17 @@
 
+/* MISCELANEOUS*/
+@import url("misc/normalize.css");
+
+/* PARTIALS */
+@import url("partials/header.css");
+@import url("partials/footer.css");
+
+/* COMPONENTS */
+@import url("components/");
+
+
+
+
 p {
     color:blue;
 }
