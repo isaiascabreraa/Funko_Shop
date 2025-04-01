@@ -1,7 +1,37 @@
 
-footer {
-    display: flex;
+footer{
     min-width: 550px; /* Cambiar esto por un media query despues que ajuste la pantalla */
     justify-content: space-between;
     background-color: rgb(60, 60, 60)
+}
+
+footer div {
+    display: flex;
+    justify-content: space-between;
+}
+
+footer nav {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    margin: 15px;
+}
+
+footer img {
+    margin: 15px;
+}
+
+footer a {
+    font-size: 2rem;
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+}
+
+footer span {
+    display: flex;
+    justify-content: center;
+    padding: 15px;
+    font-size: 1.5rem;
+    color: rgb(256,256,256);
 }
