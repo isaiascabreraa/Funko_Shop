@@ -1,4 +1,48 @@
 
 main {
-    padding: 100px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+
+    padding: 100px 0px 100px;
+    min-width: 550px;
+
+    font-size: 10em;
+    background-color: rgb(245, 245, 245);
 }
+
+/* BANNER */
+.main_banner {
+    display: block;
+    background-color: beige;
+}
+
+.main_banner img {
+    display: none;
+}
+
+
+/*  MAIN PRODUCTS */
+
+.main_items {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}
+
+.product_item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    background-color: aqua;
+}
+
+.product_description {
+    font-size: 2em;
+}
+
+.product_item img {
+    height: 100%;
+}
+
