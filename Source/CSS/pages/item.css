@@ -1,0 +1,36 @@
+
+.item {
+    display: flex;
+    align-items: center;
+}
+
+.item_details span{
+    font-size: 2rem;
+}
+.item_details h2{
+    font-size: 4rem;
+}
+.item_details p {
+    font-size: 2rem;
+}
+
+.item_price p{
+    font-size: 4rem;
+}
+.item_price button {
+    height: 30px;
+    width: 115px;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 5px;
+    color: rgb(230, 230, 230);
+    background-color: rgb(230, 70, 70);
+}
+
+.payment_methods {
+    font-size: 2rem;
+    color: rgb(35, 100, 200);
+}
+.payment_methods a{
+    color: rgb(35, 100, 200);
+}
