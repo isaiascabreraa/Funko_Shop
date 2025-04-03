@@ -12,17 +12,17 @@ main {
 }
 
 /* BANNER */
-.main_banner {
+.home_banner {
     position: relative;
     background-color: beige;
 }
-.main_banner img {
+.home_banner img {
     height: 388px;
     width: 100%;
     min-width: 550px;
     filter: blur(2px);
 }
-.main_banner::after {
+.home_banner::after {
     position: absolute;
     top: 0;
     left: 0;
@@ -70,7 +70,7 @@ main {
 
 
 /*  MAIN PRODUCTS */
-.main_items {
+.home_items {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -106,4 +106,5 @@ main {
 .product_description a{
     font-size: 2rem;
 }
+
 
