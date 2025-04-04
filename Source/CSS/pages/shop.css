@@ -6,36 +6,38 @@ main {
 .shop_filter {
     display: flex;
     flex-direction: column;
-    background-color: rgb(255, 255, 255);
+    margin: 5px 10px 5px;
+    background-color: rgb(221, 26, 26);
 }
-
 .shop_items {
-    background-color: rgb(255, 255, 255);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 25px;
+    background-color: blue;
 }
-
 
 .product_item {
     display: flex;
-    align-items: center;
+    flex-direction: column;
+    background-color: aqua;
 }
-.product_item a {
-    padding: 10px;
-    border-radius: 18px;
-    text-decoration: none;
-    color: rgb(245, 245, 245);
-    background-color: rgb(60, 60, 60);
-}
+
 .product_item img {
-    height: 60vh;
+    height: 250px;
+    width: 250px;
 }
 
 .product_description{
     display: flex;
     flex-direction: column;
-    gap: 25px;
+    gap: 5px;
 }
 .product_description h2{
-    font-size: 3rem;
+    font-size: 2rem;
+}
+.product_description span{
+    font-size: 2rem;
 }
 .product_description p{
     font-size: 2rem;
