@@ -1,26 +1,27 @@
 
 main {
     display: flex;
+    margin: 20px 0px 20px;
 }
 
 .shop_filter {
     display: flex;
     flex-direction: column;
     margin: 5px 10px 5px;
-    background-color: rgb(221, 26, 26);
 }
 .shop_items {
     display: flex;
     flex-wrap: wrap;
+    width: 100%;
     justify-content: center;
     gap: 25px;
-    background-color: blue;
 }
 
 .product_item {
     display: flex;
     flex-direction: column;
-    background-color: aqua;
+    text-decoration: none;
+    color: inherit;
 }
 
 .product_item img {

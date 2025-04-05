@@ -18,7 +18,7 @@ const products = [
 const home_products = document.getElementsByClassName("home_items")[0];
 
 products.forEach(product => {
-    const container = document.createElement("section");
+    const container = document.createElement("div");
     container.classList.add("product_item");
 
     const figure = document.createElement("figure");
