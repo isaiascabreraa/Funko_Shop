@@ -5,19 +5,19 @@ const products = [
         name: "Baby Yoda",
         price: "$1799,99",
         payments: "3 Cuotas Sin Interes",
-        image: "../../Multimedia/FunkosInterior/baby-yoda-1.webp"
+        image: "../Multimedia/FunkosInterior/baby-yoda-1.webp"
     },{
         brand: "Pokemon",
         name: "Charmander",
         price: "$1799,99",
         payments: "3 Cuotas Sin Interes",
-        image: "../../Multimedia/FunkosInterior/charmander-1.webp"
+        image: "../Multimedia/FunkosInterior/charmander-1.webp"
     },{
         brand: "Harry Potter",
         name: "Harry Potter",
         price: "$1799,99",
         payments: "3 Cuotas Sin Interes",
-        image: "../../Multimedia/FunkosInterior/harry-1.webp"
+        image: "../Multimedia/FunkosInterior/harry-1.webp"
     }
 ];
 
@@ -28,12 +28,9 @@ products.forEach( product => {
     const product_item = document.createElement("a");
     product_item.classList.add("product_item");
     product_item.href = "../HTML/item.html";
-    
+
     const figure = document.createElement("figure");
-    const img = document.createElement("img");
-    img.src = product.image;
-    img.alt = product.name;
-    figure.appendChild(img);
+    figure.innerHTML = `<img src="${product.image}" alt="${product.name}">`;
     product_item.appendChild(figure);
 
     const description = document.createElement("div");

@@ -1,5 +1,4 @@
 
-
 <!DOCTYPE html>
 <html lang="es">
 
@@ -9,13 +8,13 @@
     <link rel="icon" href="../../Multimedia/Branding/isotype.svg">
     <title>Funko Shop</title>
     <link rel="stylesheet" href="../CSS/index.css">
-    <link rel="stylesheet" href="../CSS/pages/item.css">
+    <link rel="stylesheet" href="../CSS/pages/home.css">
 </head>
 
 <body>
 
     <header> 
-        <a href="../HTML/home.html">
+        <a href="index.html">
             <img src="../../Multimedia/Branding/logo_light_horizontal.svg" alt="Logo Funko_Shop"/> 
         </a>
         <nav>
@@ -27,42 +26,24 @@
     </header>
 
     <main>
+        <section class="home_banner">
+            <figure>
+                <img src="../../Multimedia/Banner/funkos-banner.webp" alt="Banner FunkoShop image"/> 
+            </figure>
 
-        <section class="item">
-
-            <div>
-                <img src="/Multimedia/FunkoCajas/baby-yoda-box.webp">
-            </div>
-
-            <div>
-                <div class="item_details">
-                    <span> Star Wars </span>
-                    <h2> BABY YODA BLUEBALL </h2>
-                    <p> Figura coleccionable de Baby Yoda (Grogu) - The Mandalorian Saga, edición limitada. </p>
+            <div class="banner_items">
+                <div class="banner_description">
+                    <h2> Nuevos ingresos </h2>
+                    <p> Descubre el proximo FunkoPop de tu coleccion </p>
                 </div>
-
-
-                <div class="item_price">
-                    <p> $1799,99 </p>
-                    <div>
-                        <button> Agregar al Carrito</button>
-                    </div>
+                <div class="banner_nav">
+                    <a href="index.html"> SHOP </a>
                 </div>
-
-                <div class="payment_methods">
-                    <a href="../HTML/home.html"> Ver metodos de pago </a>
-                    <span> - </span>
-                    <span> 3 CUOTAS SIN INTERÉS</span>
-                </div>
-            </div>
-
         </section>
-        
-        <section class="item_carousel">
-            Productor seleccionados
 
-            [Aca va el carrouser de productos]
-        </section>
+        <h1> Productos destacados </h1>
+        <section class="home_items"></section>
+    
     </main>
 
     <footer> 
@@ -83,6 +64,8 @@
         
     </footer>
     
+    <script src="../JS/home.js"></script>
+
 </body>
 
 </html>

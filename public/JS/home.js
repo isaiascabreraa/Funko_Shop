@@ -3,15 +3,15 @@ const products = [
     {
         name: "Baby Yoda Blue Ball",
         description: "Disfruta de una saga que sigue agregando personajes a su coleccion",
-        image: "../../Multimedia/FunkosInterior/baby-yoda-1.webp"
+        image: "Multimedia/FunkosInterior/baby-yoda-1.webp"
     },{
         name: "Charmander",
         description: "Atrapa todos los que puedas y disfruta de una colleccion llena de amigos",
-        image: "../../Multimedia/FunkosInterior/charmander-1.webp"
+        image: "Multimedia/FunkosInterior/charmander-1.webp"
     },{
         name: "Harry Potter",
         description: "Revive los recuerdos de una saga llena de magia y encanto",
-        image: "../../Multimedia/FunkosInterior/harry-1.webp"
+        image: "Multimedia/FunkosInterior/harry-1.webp"
     }
 ];
 
