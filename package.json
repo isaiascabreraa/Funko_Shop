@@ -21,7 +21,8 @@
   "homepage": "https://github.com/isaiascabreraa/Funko_Shop#readme",
   "type": "commonjs",
   "dependencies": {
-    "express": "^5.1.0"
+    "express": "^5.1.0",
+    "mysql2": "^3.14.0"
   },
   "devDependencies": {
     "nodemon": "^3.1.9"
