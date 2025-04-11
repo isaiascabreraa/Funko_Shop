@@ -1,0 +1,23 @@
+[
+  {
+    "brand": "Star Wars",
+    "name": "Baby Yoda",
+    "price": "$1799,99",
+    "payments": "3 Cuotas Sin Interes",
+    "image": "../Multimedia/FunkosInterior/baby-yoda-1.webp"
+  },
+  {
+    "brand": "Pokemon",
+    "name": "Charmander",
+    "price": "$1799,99",
+    "payments": "3 Cuotas Sin Interes",
+    "image": "../Multimedia/FunkosInterior/charmander-1.webp"
+  },
+  {
+    "brand": "Harry Potter",
+    "name": "Harry Potter",
+    "price": "$1799,99",
+    "payments": "3 Cuotas Sin Interes",
+    "image": "../Multimedia/FunkosInterior/harry-1.webp"
+  }
+]
