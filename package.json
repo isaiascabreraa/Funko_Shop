@@ -1,0 +1,31 @@
+{
+  "name": "funko_shop",
+  "version": "1.0.0",
+  "description": "Este proyecto tiene como objetivo principal crear una aplicación web de ventas de Funko Pops desde cero. Utiliza una combinación de tecnologías que incluyen HTML, CSS, JavaScript, Bootstrap, Node.js y React.js para ofrecer una experiencia de compra en línea completa. La aplicación permite a los usuarios explorar y adquirir Funko Pops de su elección, con características como la búsqueda de productos, gestión de carrito de compras y procesamiento de pagos. Además, se implementa un servidor backend que se encarga de gestionar la lógica de negocio y la interacción con la base de datos MySQL para el seguimiento de inventario y pedidos. Este proyecto representa un ejercicio práctico para demostrar nuestras habilidades en el desarrollo web y la integración de tecnologías clave.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js",
+    "dev": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/isaiascabreraa/Funko_Shop.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/isaiascabreraa/Funko_Shop/issues"
+  },
+  "homepage": "https://github.com/isaiascabreraa/Funko_Shop#readme",
+  "type": "commonjs",
+  "dependencies": {
+    "ejs": "^3.1.10",
+    "express": "^5.1.0",
+    "mysql2": "^3.14.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.9"
+  }
+}

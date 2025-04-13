@@ -1,0 +1,43 @@
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../../../Multimedia/Branding/isotype.svg">
+    <title>Funko Shop</title>
+    <link rel="stylesheet" href="../CSS/index.css">
+    <link rel="stylesheet" href="../CSS/pages/shop.css">
+</head>
+
+<body>
+
+    <%- include('../partials/header')%>
+    <main>
+
+        <section class="shop_filter">
+            <div>
+                <p> BUSCAR </p>
+            </div>
+            <div>
+                <p> ORDENAR POR </p>
+            </div>
+            <div>
+                <p> PRECIO </p>
+            </div>
+            <div>
+                <p> FILTRAR </p>
+            </div>
+        </section>
+
+        <section class="shop_items"></section>
+        
+    </main>
+    <%- include('../partials/footer')%>
+
+    <script src="../JS/shop.js"></script>
+    
+</body>
+
+</html>
