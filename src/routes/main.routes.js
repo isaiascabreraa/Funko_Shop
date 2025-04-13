@@ -1,8 +1,8 @@
 
 const express = require('express');
+const main_controllers = require('../controllers/main.controllers');
 const router = express.Router();
-const path = require('path');
 
-router.get('/home', (req, res) => { res.sendFile(path.resolve(__dirname, '../../public/index.html'));})
+router.get('/home', main_controllers.home);
 
 module.exports = router;

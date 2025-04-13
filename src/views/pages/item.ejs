@@ -1,5 +1,4 @@
 
-
 <!DOCTYPE html>
 <html lang="es">
 
@@ -14,18 +13,7 @@
 
 <body>
 
-    <header> 
-        <a href="/home">
-            <img src="../../Multimedia/Branding/logo_light_horizontal.svg" alt="Logo Funko_Shop"/> 
-        </a>
-        <nav>
-            <a href="/shop"> SHOP </a>
-            <a href="/home"> CONTACT </a>
-            <a href="/home"> LOGIN </a>
-            <a href="/home"> TROLLEY </a>
-        </nav>
-    </header>
-
+    <%- include('../partials/header')%>
     <main>
         <section class="item">
             <div>
@@ -61,24 +49,9 @@
             [Aca va el carrouser de productos]
         </section>
     </main>
+    <%- include('../partials/footer')%>
 
-    <footer> 
-        <div>
-            <nav>
-                <a href="/shop">Shop</a>
-                <a href="/home">Ingresar</a>
-                <a href="/home">Contacto</a>
-            </nav>
-            
-            <div>
-                <img src="../../Multimedia/Branding/isotype.svg" alt="Isotipo Funko_Shop"/>
-            </div>
-
-        </div>
-        
-        <span>All rigths reserverd 2025 - Funko Shop &copy; </span>
-        
-    </footer>
+    <script src="../JS/shop.js"></script>
     
 </body>
 

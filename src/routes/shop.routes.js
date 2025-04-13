@@ -1,9 +1,9 @@
 
 const express = require('express');
+const shop_controllers = require('../controllers/shop.controller');
 const router = express.Router();
-const path = require('path');
 
-router.get('/item/:id', (req, res) => { res.sendFile(path.resolve(__dirname, '../../public/HTML/item.html'));})
-router.get('/', (req, res) => { res.sendFile(path.resolve(__dirname, '../../public/HTML/shop.html'));})
+router.get('/item/:id', shop_controllers.item);
+router.get('/', shop_controllers.shop);
 
 module.exports = router;
