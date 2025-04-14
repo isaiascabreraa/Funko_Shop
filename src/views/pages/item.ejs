@@ -17,26 +17,25 @@
     <main>
         <section class="item">
             <div>
-                <img src="/Multimedia/FunkoCajas/baby-yoda-box.webp">
+                <img src="<%= character.image %>" alt="<%= character.name %>">
             </div>
 
             <div>
                 <div class="item_details">
-                    <span> Star Wars </span>
-                    <h2> BABY YODA BLUEBALL </h2>
-                    <p> Figura coleccionable de Baby Yoda (Grogu) - The Mandalorian Saga, edición limitada. </p>
+                    <span><%= character.category %></span>
+                    <h2><%= character.name %></h2>
+                    <p><%= character.description %></p>
                 </div>
 
-
                 <div class="item_price">
-                    <p> $1799,99 </p>
+                    <p>$<%= character.price %></p>
                     <div>
-                        <button> Agregar al Carrito</button>
+                        <button> Agregar al Carrito </button>
                     </div>
                 </div>
 
                 <div class="payment_methods">
-                    <a href="../HTML/home.html"> Ver metodos de pago </a>
+                    <a href="/"> Ver métodos de pago </a>
                     <span> - </span>
                     <span> 3 CUOTAS SIN INTERÉS</span>
                 </div>
@@ -51,8 +50,6 @@
     </main>
     <%- include('../partials/footer')%>
 
-    <script src="../JS/shop.js"></script>
-    
 </body>
 
 </html>

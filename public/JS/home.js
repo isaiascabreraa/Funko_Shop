@@ -39,7 +39,7 @@ products.forEach(product => {
     const button = document.createElement("div");
 
     const link = document.createElement("a");
-    link.href = "../HTML/shop.html";
+    link.href = "/shop";
     link.textContent = "VER COLECCIÓN";
 
     button.appendChild(link);

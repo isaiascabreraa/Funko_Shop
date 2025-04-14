@@ -31,8 +31,6 @@ products.forEach( product => {
     const product_item = document.createElement("a");
     product_item.classList.add("product_item");
     product_item.href = `/shop/item/${product.id}`;
-    //const currentPath = window.location.pathname;
-    //product_item.href = `${currentPath}/item/${product.id}`;
 
     const figure = document.createElement("figure");
     figure.innerHTML = `<img src="${product.image}" alt="${product.name}">`;
