@@ -1,19 +1,13 @@
 
 header {
     display: flex;
-    min-width: 550px; /* Cambiar esto por un media query despues que ajuste la pantalla */
     justify-content: space-between;
     background-color: rgb(60, 60, 60)
-}
-
-header a {
-    margin: 20px 10px 20px;
 }
 
 header img {
     height: auto;
     width: 100%;
-    min-width: 200px;
 }
 
 header nav {
@@ -24,7 +18,10 @@ header nav {
 }
 
 header a {
-    font-size: 6em;
+    margin: 20px 10px 20px;
+    font-size: 2rem;
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
     text-decoration: none;
     color: rgb(255, 255, 255);
 }

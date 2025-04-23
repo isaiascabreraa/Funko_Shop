@@ -1,6 +1,5 @@
 
 footer{
-    min-width: 550px; /* Cambiar esto por un media query despues que ajuste la pantalla */
     justify-content: space-between;
     background-color: rgb(60, 60, 60)
 }
@@ -14,7 +13,6 @@ footer nav {
     display: flex;
     flex-direction: column;
     justify-content: center;
-
     margin: 15px;
 }
 
@@ -24,6 +22,8 @@ footer img {
 
 footer a {
     font-size: 2rem;
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
     text-decoration: none;
     color: rgb(255, 255, 255);
 }

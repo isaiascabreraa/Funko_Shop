@@ -1,37 +1,25 @@
 
-main {
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1;
-
-    padding: 0px 0px 100px;
-    min-width: 550px;
-
-    font-size: 10em;
-    background-color: rgb(245, 245, 245);
-}
-
 /* BANNER */
 .home_banner {
     position: relative;
+    overflow: hidden;
     background-color: beige;
 }
 .home_banner img {
-    height: 388px;
+    display: block;
+    height: 400px;
     width: 100%;
-    min-width: 550px;
-    filter: blur(2px);
+    object-fit: cover;
+    filter: blur(0px);
 }
 .home_banner::after {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 388px;
-    width: 100%;
     content: "";
-    background: rgba(0, 0, 0, 0.5);
+    position: absolute;
+    inset: 0;
     z-index: 0;
+    backdrop-filter: blur(1.5px) brightness(50%);
 }
+
 
 .banner_items {
     display: flex;
@@ -46,17 +34,20 @@ main {
 .banner_description {
     display: flex;
     flex-direction: column;
+    font-family: 'Inter', sans-serif;
     color: rgb(245, 245, 245);
 }
 .banner_description h2{
     font-size: 4rem;
+    font-weight: 700;
 }
 .banner_description p {
     font-size: 3rem;
+    font-weight: 400;
 }
 
 .banner_nav {
-    display: inline-block;
+    display: flex;
 }
 .banner_nav a {
     padding: 10px 40px 10px;
@@ -88,23 +79,28 @@ main {
     color: rgb(245, 245, 245);
     background-color: rgb(60, 60, 60);
 }
+
 .product_item img {
-    height: 60vh;
+    width: 100%;
 }
 
 .product_description{
     display: flex;
     flex-direction: column;
+    font-family: 'Raleway', sans-serif;
     gap: 25px;
 }
 .product_description h2{
     font-size: 3rem;
+    font-weight: 700;
 }
 .product_description p{
     font-size: 2rem;
+    font-weight: 500;
 }
 .product_description a{
     font-size: 2rem;
+    font-weight: 500;
 }
 
 
