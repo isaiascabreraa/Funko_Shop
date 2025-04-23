@@ -32,16 +32,20 @@ main {
 .product_description{
     display: flex;
     flex-direction: column;
+    font-family: 'Inter', sans-serif;
     gap: 5px;
-}
-.product_description h2{
-    font-size: 2rem;
 }
 .product_description span{
     font-size: 2rem;
+    font-weight: 500;
+}
+.product_description h2{
+    font-size: 2rem;
+    font-weight: 700;
 }
 .product_description p{
     font-size: 2rem;
+    font-weight: 400;
 }
 .product_description a{
     font-size: 2rem;

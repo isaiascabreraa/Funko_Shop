@@ -1,6 +1,16 @@
 
+const shop = async (req, res) => {
+    const { get_characters } = require("../models/characters.model");
+    const data = await get_characters();
 
-//////
+    if (!data || data.length === 0) {
+        return res.status(404).send("Producto no encontrado");
+    } else{
+        const characters = data
+        res.render('./pages/shop.ejs', { characters });
+    }
+}
+
 const item = async (req, res) => {
 
     const { get_character } = require("../models/characters.model");
@@ -15,9 +25,8 @@ const item = async (req, res) => {
         res.render('./pages/item.ejs', { character });
     }
 }
-//////
 
 module.exports = {
-    shop: (req, res) => res.render('./pages/shop.ejs'),
-    item//: (req, res) => res.render('./pages/item.ejs'),
+    shop,
+    item
 }
