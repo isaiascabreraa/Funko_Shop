@@ -14,10 +14,12 @@ main {
 
 .shop_items {
     display: flex;
-    flex-wrap: wrap;
+    padding: 10px;
     width: 100%;
+    flex-wrap: wrap;
     justify-content: center;
     gap: 25px;
+    background-color: rgb(235, 235, 235);
 }
 
 
@@ -26,6 +28,7 @@ main {
     flex-direction: column;
     text-decoration: none;
     color: inherit;
+    background-color: rgb(255, 255, 255);
 }
 .product_item img {
     height: 250px;

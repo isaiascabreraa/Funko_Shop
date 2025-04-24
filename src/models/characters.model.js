@@ -12,7 +12,7 @@ const get_character = async (id) => {
 }
 
 const get_featured_characters = async () => {
-    const [rows, fields] = await conn.query('SELECT * FROM products ORDER BY id ASC LIMIT 3;');
+    const [rows, fields] = await conn.query('SELECT * FROM products ORDER BY id ASC LIMIT 6;');
     return rows;
 }
 

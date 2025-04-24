@@ -45,8 +45,9 @@
         
         <% if (featured_characters && featured_characters.length > 0) { %>
         <section class="carousel">
-            <p>Productos destacados</p>
+            <h3>Productos destacados</h3>
             <div class="carousel_wrapper">
+
                 <button class="carousel_button left" onclick="scrollCarousel(-1)">‹</button>
                 <div class="carousel_items">
                         <% featured_characters.forEach(character => { %>
@@ -56,12 +57,10 @@
                                     <img src="<%= character.image %>" alt="<%= character.name %>">
                                 </figure>
                                 <div class="carousel_description">
-                                    <span><%= character.brand %></span>
+                                    <p><%= character.brand %></p>
                                     <h2><%= character.name %></h2>
                                     <p><%= character.price %></p>
-                                    <div class="carousel_payment_methods">
-                                        <span><%= character.payments %></span>
-                                    </div>
+                                    <span><%= character.payments %></span>
                                 </div>
                             </a>
                         </div>
@@ -71,6 +70,7 @@
             </div>
         </section>
         <% } %>
+        <script type="module" src="/Javascript/carousel.js"></script>
 
     </main>
     <%- include('../partials/footer')%>

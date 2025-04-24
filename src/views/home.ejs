@@ -33,7 +33,8 @@
                 </div>
         </section>
 
-        <% featured_characters.forEach(character => { %>
+        <section class="home_items">
+          <% featured_characters.forEach(character => { %>
             <div class="product_item">
               <figure>
                 <img src="<%= character.image %>" alt="<%= character.name %>">
@@ -47,9 +48,9 @@
               </div>
             </div>
           <% }) %>
-          
-    
-    </main>
+        </section>
+        
+      </main>
     <%- include('./partials/footer')%>
     
 
