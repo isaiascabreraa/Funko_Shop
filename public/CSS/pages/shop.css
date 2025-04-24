@@ -4,11 +4,14 @@ main {
     margin: 20px 0px 20px;
 }
 
+
 .shop_filter {
     display: flex;
     flex-direction: column;
     margin: 5px 10px 5px;
 }
+
+
 .shop_items {
     display: flex;
     flex-wrap: wrap;
@@ -17,20 +20,22 @@ main {
     gap: 25px;
 }
 
+
 .product_item {
     display: flex;
     flex-direction: column;
     text-decoration: none;
     color: inherit;
 }
-
 .product_item img {
     height: 250px;
     width: 250px;
 }
 
+
 .product_description{
     display: flex;
+    padding: 10px;
     flex-direction: column;
     font-family: 'Inter', sans-serif;
     gap: 5px;
@@ -49,4 +54,15 @@ main {
 }
 .product_description a{
     font-size: 2rem;
+}
+
+
+.payment_methods {
+    font-size: 2.5rem;
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    color: rgb(35, 100, 200);
+}
+.payment_methods a{
+    color: rgb(35, 100, 200);
 }

@@ -30,6 +30,7 @@
     z-index: 1;
 }
 
+
 .banner_description {
     display: flex;
     flex-direction: column;
@@ -45,6 +46,7 @@
     font-weight: 400;
 }
 
+
 .banner_nav {
     display: flex;
 }
@@ -58,7 +60,6 @@
 }
 
 
-
 /*  MAIN PRODUCTS */
 .home_items {
     display: flex;
@@ -66,6 +67,7 @@
     align-items: center;
     gap: 50px;
 }
+
 
 .product_item {
     display: flex;
@@ -78,10 +80,10 @@
     color: rgb(245, 245, 245);
     background-color: rgb(60, 60, 60);
 }
-
 .product_item img {
     width: 100%;
 }
+
 
 .product_description{
     display: flex;
@@ -98,8 +100,6 @@
     font-weight: 500;
 }
 .product_description a{
-    font-size: 2rem;
+    font-size: 1.8rem;
     font-weight: 500;
 }
-
-

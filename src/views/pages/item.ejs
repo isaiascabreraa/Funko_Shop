@@ -37,21 +37,53 @@
                 </div>
 
                 <div class="payment_methods">
-                    <a href="/"> Ver métodos de pago </a>
-                    <span> - </span>
-                    <span> 3 CUOTAS SIN INTERÉS</span>
+                    <a href="/"> Ver métodos de pago -</a>
+                    <span> <%= character.payments %></span>
                 </div>
             </div>
         </section>
         
-        <section class="item_carousel">
-            Productor seleccionados
-
-            [Aca va el carrouser de productos]
+        <% if (featured_characters && featured_characters.length > 0) { %>
+        <section class="carousel">
+            <p>Productos destacados</p>
+            <div class="carousel_wrapper">
+                <button class="carousel_button left" onclick="scrollCarousel(-1)">‹</button>
+                <div class="carousel_items">
+                        <% featured_characters.forEach(character => { %>
+                        <div>
+                            <a href="/shop/item/<%= character.id %>">
+                                <figure>
+                                    <img src="<%= character.image %>" alt="<%= character.name %>">
+                                </figure>
+                                <div class="carousel_description">
+                                    <span><%= character.brand %></span>
+                                    <h2><%= character.name %></h2>
+                                    <p><%= character.price %></p>
+                                    <div class="carousel_payment_methods">
+                                        <span><%= character.payments %></span>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <% }); %>
+                </div>
+                <button class="carousel_button right" onclick="scrollCarousel(1)">›</button>
+            </div>
         </section>
+        <% } %>
+
     </main>
     <%- include('../partials/footer')%>
 
 </body>
 
 </html>
+
+
+<script>
+    function scrollCarousel(direction) {
+        const carousel = document.querySelector('.carousel_items');
+        const itemWidth = carousel.querySelector('div').offsetWidth + 50;
+        carousel.scrollLeft += direction * itemWidth;
+    }
+</script>

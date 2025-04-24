@@ -43,7 +43,9 @@
                   <span><%= character.brand %></span>
                   <h2><%= character.name %></h2>
                   <p><%= character.price %></p>
-                  <p><%= character.payments %></p>
+                  <div class="payment_methods">
+                    <span><%= character.payments %></span>
+                </div>
                 </div>
               </a>
             <% }); %>

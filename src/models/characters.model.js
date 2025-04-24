@@ -11,7 +11,13 @@ const get_character = async (id) => {
     return rows;
 }
 
+const get_featured_characters = async () => {
+    const [rows, fields] = await conn.query('SELECT * FROM products ORDER BY id ASC LIMIT 3;');
+    return rows;
+}
+
 module.exports = {
     get_character,
     get_characters,
+    get_featured_characters,
 }
