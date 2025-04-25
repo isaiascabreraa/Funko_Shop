@@ -37,10 +37,10 @@
             <% characters.forEach(character => { %>
               <a class="product_item" href="/shop/item/<%= character.id %>">
                 <figure>
-                  <img src="<%= character.image %>" alt="<%= character.name %>">
+                  <img src="<%= character.primary_image %>" alt="<%= character.name %>">
                 </figure>
                 <div class="product_description">
-                  <span><%= character.brand %></span>
+                  <span><%= character.brand_name %></span>
                   <h2><%= character.name %></h2>
                   <p><%= character.price %></p>
                   <div class="payment_methods">

@@ -104,6 +104,7 @@
 .product_description p{
     font-size: 2rem;
     font-weight: 500;
+    max-width: 500px;
 }
 .product_description a{
     font-size: 1.8rem;

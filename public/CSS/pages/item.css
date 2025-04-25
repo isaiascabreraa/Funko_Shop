@@ -31,6 +31,7 @@
 .item_details p {
     font-size: 2rem;
     font-weight: 400;
+    max-width: 1000px;
 }
 
 

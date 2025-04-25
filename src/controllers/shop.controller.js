@@ -13,20 +13,20 @@ const shop = async (req, res) => {
 
 const item = async (req, res) => {
 
-    const { get_character, get_featured_characters } = require("../models/characters.model");
+    const { get_character, get_brand_characters } = require("../models/characters.model");
+
     const data = await get_character(req.params.id);
-    const data_featured = await get_featured_characters();
-
     console.log(`Id solicitado: ${req.params.id}`)
-
     if (!data || data.length === 0) {
         return res.status(404).send("Producto no encontrado");
-    
-    } else{
-        const character = data[0]
-        const featured_characters = data_featured;
-        res.render('./pages/item.ejs', { character, featured_characters });
     }
+    const data_featured = await get_brand_characters(data[0].brand_name);
+
+    const character = data[0];
+    const brand_characters = data_featured.filter(item => item.id !== character.id);
+
+    res.render('./pages/item.ejs', { character, brand_characters });
+
 }
 
 module.exports = {

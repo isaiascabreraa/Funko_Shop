@@ -19,12 +19,12 @@
     <main>
         <section class="item">
             <div>
-                <img src="<%= character.image %>" alt="<%= character.name %>">
+                <img src="<%= character.primary_image %>" alt="<%= character.name %>">
             </div>
 
             <div class="item_description">
                 <div class="item_details">
-                    <span><%= character.brand %></span>
+                    <span><%= character.brand_name %></span>
                     <h2><%= character.name %></h2>
                     <p><%= character.description %></p>
                 </div>
@@ -43,21 +43,21 @@
             </div>
         </section>
         
-        <% if (featured_characters && featured_characters.length > 0) { %>
+        <% if (brand_characters && brand_characters.length > 0) { %>
         <section class="carousel">
             <h3>Productos destacados</h3>
             <div class="carousel_wrapper">
 
                 <button class="carousel_button left" onclick="scrollCarousel(-1)">‹</button>
                 <div class="carousel_items">
-                        <% featured_characters.forEach(character => { %>
+                        <% brand_characters.forEach(character => { %>
                         <div>
                             <a href="/shop/item/<%= character.id %>">
                                 <figure>
-                                    <img src="<%= character.image %>" alt="<%= character.name %>">
+                                    <img src="<%= character.primary_image %>" alt="<%= character.name %>">
                                 </figure>
                                 <div class="carousel_description">
-                                    <p><%= character.brand %></p>
+                                    <p><%= character.brand_name %></p>
                                     <h2><%= character.name %></h2>
                                     <p><%= character.price %></p>
                                     <span><%= character.payments %></span>
