@@ -1,8 +1,8 @@
 
 //Tooltip
 document.addEventListener('DOMContentLoaded', function() {
-    const rangeInput = document.getElementById('price-range');
-    const tooltip = document.getElementById('price-tooltip');
+    const rangeInput = document.getElementById('price_range');
+    const tooltip = document.getElementById('price_tooltip');
 
     let tooltipTimeout;
     rangeInput.addEventListener('input', () => {

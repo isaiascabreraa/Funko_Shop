@@ -3,74 +3,77 @@
 <html lang="es">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="../../../Multimedia/Branding/isotype.svg">
-    <title>Funko Shop</title>
-    <link rel="stylesheet" href="../CSS/index.css">
-    <link rel="stylesheet" href="../CSS/pages/shop.css">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="../../../Multimedia/Branding/isotype.svg">
+  <title>Funko Shop</title>
+  <link rel="stylesheet" href="../CSS/index.css">
+  <link rel="stylesheet" href="../CSS/pages/shop.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 </head>
 
 <body>
-
-    <%- include('../partials/header')%>
-    <main>
-        <aside class="shop_sidebar">
-
-            <div class="shop_search">
-              <label for="buscar">Buscar:</label><br>
-              <input type="text" id="buscar" name="buscar">
-            </div>
-
-            <div class="shop_order">
-              <label for="ordenar">Ordenar por:</label><br>
-              <select id="ordenar" name="ordenar">
-                <option value=""></option>
-                <option value="precio-asc">Menor precio</option>
-                <option value="precio-desc">Mayor precio</option>
-              </select>
-            </div>
-
-            <div class="shop_price">
-              <p>Precio</p>
-              <div class="price-range-container">
-                <input type="range" id="price-range" min="0" max="10000" value="10000" step="500">
-                <span id="price-tooltip" class="tooltip">Sin límite</span>
-              </div>
-            </div>
-
-            <div class="shop_clean">
-              <button id="reset-filters" class="reset-btn">Limpiar filtros</button>
-            </div>
-
-        </aside>
-
-        <div class="shop_items">
-            <% characters.forEach(character => { %>
-              <a class="product_item" href="/shop/item/<%= character.id %>">
-                <figure>
-                  <img src="<%= character.primary_image %>" alt="<%= character.name %>">
-                </figure>
-                <div class="product_description">
-                  <span><%= character.brand_name %></span>
-                  <h2><%= character.name %></h2>
-                  <p><%= character.price %></p>
-                  <div class="payment_methods">
-                    <span><%= character.payments %></span>
-                </div>
-                </div>
-              </a>
-            <% }); %>
-          </div>
-
-          <script src="../Javascript/shop.js"></script>
-          <script src="../Javascript/tools/tooltip.js"></script>
-        
-    </main>
-    <%- include('../partials/footer')%>
+  <%- include('../partials/header')%>
+  <main>
     
-</body>
+    <aside class="shop_sidebar">
+      <form action="/shop" method="GET" id="shop_filters">
 
-</html>
+        <div class="shop_search">
+          <label for="buscar">Buscar:</label>
+          <input type="text" id="buscar" name="buscar" value="<%= search %>">
+        </div>
+        
+        <div class="shop_order">
+          <label for="ordenar">Ordenar por:</label><br>
+          <select id="ordenar" name="sort">
+            <option value=""></option>
+            <option value="precio_asc" <%= sort==='precio_asc'? 'selected' : '' %>>Menor precio</option>
+            <option value="precio_desc" <%= sort==='precio_desc'? 'selected' : '' %>>Mayor precio</option>
+          </select>
+        </div>
+        
+        <div class="shop_price">
+          <label for="price">Precio</label>
+          <div>
+            <input type="range" id="price_range"  name="range" min="0" max="10000" value="<%= range %>" step="500">
+            <span id="price_tooltip" class="tooltip">Sin límite</span>
+          </div>
+        </div>
+        
+        <div class="shop_submit">
+          <button type="submit" class="submit_btn">Aplicar Filtros</button>
+        </div>
+
+      </form>
+    </aside>
+    
+    
+    <div class="shop_items">
+      <% characters.forEach(character => { %>
+        <a class="product_item" href="/shop/item/<%= character.id %>">
+          <figure>
+            <img src="<%= character.primary_image %>" alt="<%= character.name %>">
+          </figure>
+          <div class="product_description">
+            <span><%= character.brand_name %></span>
+            <h2><%= character.name %></h2>
+            <p><%= character.price %></p>
+            <div class="payment_methods">
+              <span><%= character.payments %></span>
+            </div>
+          </div>
+        </a>
+        <% }); %>
+    </div>
+      
+    <script src="../Javascript/shop.js"></script>
+    <script src="../Javascript/tools/tooltip.js"></script>
+      
+  </main>
+  <%- include('../partials/footer')%>
+    
+  </body>
+  
+  </html>

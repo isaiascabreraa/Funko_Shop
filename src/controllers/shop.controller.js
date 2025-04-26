@@ -5,10 +5,15 @@ const shop = async (req, res) => {
 
     if (!data || data.length === 0) {
         return res.status(404).send("Producto no encontrado");
-    } else{
-        const characters = data
-        res.render('./pages/shop.ejs', { characters });
     }
+
+    const characters = data
+    const search = req.query.buscar || "";
+    const sort   = req.query.sort   || "";
+    const range  = req.query.range  || "10000";
+    
+    res.render('./pages/shop.ejs', { characters, search, sort, range });
+    
 }
 
 const item = async (req, res) => {

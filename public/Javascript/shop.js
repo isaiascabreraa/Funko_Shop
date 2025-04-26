@@ -1,5 +1,5 @@
 
-//Filters
+/*
 document.addEventListener('DOMContentLoaded', function() {
     const searchInput = document.getElementById('buscar');
     const sortSelect = document.getElementById('ordenar');
@@ -38,4 +38,17 @@ document.addEventListener('DOMContentLoaded', function() {
         const newUrl = '/shop?' + queryParams.join('&');
         history.pushState(null, '', newUrl);
     }
+});
+*/
+
+//Filters
+document.getElementById('shop_filters').addEventListener('submit', function(event) {
+    const searchInput = document.getElementById('buscar');
+    const sortSelect = document.getElementById('ordenar');
+    const priceRange = document.getElementById('price_range');
+
+    if (searchInput.value.trim() === '') searchInput.removeAttribute('name');
+    if (sortSelect.value.trim() === '') sortSelect.removeAttribute('name');
+    if (priceRange.value === priceRange.max) priceRange.removeAttribute('name');
+
 });

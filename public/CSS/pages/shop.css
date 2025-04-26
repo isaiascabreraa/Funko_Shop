@@ -33,6 +33,8 @@ main {
 }
 .shop_price div{
     display: flex;
+    position: relative;
+    display: inline-block;
     gap: 10px;
 }
 .shop_price input[type="range"] {
@@ -57,18 +59,14 @@ main {
     pointer-events: none;
     transition: opacity 0.2s ease;
 }
-.price-range-container {
-    position: relative;
-    display: inline-block;
-}
 
 
-.shop_clean {
+.shop_submit {
     display: flex;
     margin-top: 25px;
     justify-content: center;
 }
-.shop_clean button {
+.shop_submit button {
     height: 40px;
     width: 150px;
     font-size: 1.6rem;
