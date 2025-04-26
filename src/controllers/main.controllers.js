@@ -10,9 +10,7 @@ const home = async (req, res) => {
     const target = ['Baby Yoda Blue Ball', 'Charmander', 'Harry Potter'];
     const featured_characters = data.filter(char => target.includes(char.name));
 
-    console.log(featured_characters);
     res.render('home.ejs', { featured_characters });
-    
 }
 
 module.exports = {

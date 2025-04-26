@@ -1,15 +1,87 @@
 
 main {
     display: flex;
+    background-color: rgb(235, 235, 235);
 }
 
-.shop_filter {
+/* SIDE BAR */
+.shop_sidebar {
+    display: flex;
+    padding: 20px;
+    margin: 5px 0px 5px;
+    font-size: 5rem;
+    font-family: 'Inter', sans-serif;
+    flex-direction: column;
+    gap: 20px;
+}
+
+
+.shop_search input {
+    width: 95%;
+}
+
+
+.shop_order select {
+    width: 95%;
+}
+
+
+.shop_price {
     display: flex;
     flex-direction: column;
-    margin: 5px 10px 5px;
+    gap: 10px;
+}
+.shop_price div{
+    display: flex;
+    gap: 10px;
+}
+.shop_price input[type="range"] {
+    appearance: none;
+    width: 95%;
+    height: 15px;
+    border-radius: 10px;
+    border: 2px solid rgb(0, 0, 0, 0.4);
+    background-color: rgb(255, 255, 255);
+  }
+.tooltip {
+    position: absolute;
+    background-color: rgb(60, 60, 60);
+    color: rgb(255, 255, 255);
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 14px;
+    top: -35px;
+    transform: translateX(-50%);
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease;
+}
+.price-range-container {
+    position: relative;
+    display: inline-block;
 }
 
 
+.shop_clean {
+    display: flex;
+    margin-top: 25px;
+    justify-content: center;
+}
+.shop_clean button {
+    height: 40px;
+    width: 150px;
+    font-size: 1.6rem;
+    font-family: 'Inter', sans-serif;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    color: rgb(230, 230, 230);
+    background-color: rgb(230, 70, 70);
+}
+
+
+/* SHOP ITEMS*/
 .shop_items {
     display: flex;
     padding: 10px;
@@ -17,7 +89,6 @@ main {
     flex-wrap: wrap;
     justify-content: center;
     gap: 25px;
-    background-color: rgb(235, 235, 235);
 }
 
 

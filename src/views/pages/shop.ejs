@@ -17,21 +17,35 @@
 
     <%- include('../partials/header')%>
     <main>
+        <aside class="shop_sidebar">
 
-        <section class="shop_filter">
-            <div>
-                <p> BUSCAR </p>
+            <div class="shop_search">
+              <label for="buscar">Buscar:</label><br>
+              <input type="text" id="buscar" name="buscar">
             </div>
-            <div>
-                <p> ORDENAR POR </p>
+
+            <div class="shop_order">
+              <label for="ordenar">Ordenar por:</label><br>
+              <select id="ordenar" name="ordenar">
+                <option value=""></option>
+                <option value="precio-asc">Menor precio</option>
+                <option value="precio-desc">Mayor precio</option>
+              </select>
             </div>
-            <div>
-                <p> PRECIO </p>
+
+            <div class="shop_price">
+              <p>Precio</p>
+              <div class="price-range-container">
+                <input type="range" id="price-range" min="0" max="10000" value="10000" step="500">
+                <span id="price-tooltip" class="tooltip">Sin límite</span>
+              </div>
             </div>
-            <div>
-                <p> FILTRAR </p>
+
+            <div class="shop_clean">
+              <button id="reset-filters" class="reset-btn">Limpiar filtros</button>
             </div>
-        </section>
+
+        </aside>
 
         <div class="shop_items">
             <% characters.forEach(character => { %>
@@ -50,6 +64,8 @@
               </a>
             <% }); %>
           </div>
+
+          <script src="../Javascript/shop.js"></script>
         
     </main>
     <%- include('../partials/footer')%>
