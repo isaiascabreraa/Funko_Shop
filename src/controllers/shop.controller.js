@@ -8,16 +8,14 @@ const shop = async (req, res) => {
     }
 
     const characters = data
-    const search = req.query.buscar || "";
-    const sort   = req.query.sort   || "";
-    const range  = req.query.range  || "10000";
+    const search = req.query.search;
+    const sort   = req.query.sort;
+    const range  = req.query.range;
     
     res.render('./pages/shop.ejs', { characters, search, sort, range });
-    
 }
 
 const item = async (req, res) => {
-
     const { get_character, get_brand_characters } = require("../models/characters.model");
 
     const data = await get_character(req.params.id);

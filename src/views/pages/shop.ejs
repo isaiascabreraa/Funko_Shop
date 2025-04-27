@@ -21,13 +21,13 @@
       <form action="/shop" method="GET" id="shop_filters">
 
         <div class="shop_search">
-          <label for="buscar">Buscar:</label>
-          <input type="text" id="buscar" name="buscar" value="<%= search %>">
+          <label for="search">Buscar:</label>
+          <input type="text" id="items_search" name="search" value="<%= search %>">
         </div>
         
         <div class="shop_order">
-          <label for="ordenar">Ordenar por:</label><br>
-          <select id="ordenar" name="sort">
+          <label for="sort">Ordenar por:</label><br>
+          <select id="items_sort" name="sort">
             <option value=""></option>
             <option value="precio_asc" <%= sort==='precio_asc'? 'selected' : '' %>>Menor precio</option>
             <option value="precio_desc" <%= sort==='precio_desc'? 'selected' : '' %>>Mayor precio</option>
@@ -35,9 +35,9 @@
         </div>
         
         <div class="shop_price">
-          <label for="price">Precio</label>
+          <label for="range">Precio</label>
           <div>
-            <input type="range" id="price_range"  name="range" min="0" max="10000" value="<%= range %>" step="500">
+            <input type="range" id="items_range"  name="range" min="0" max="10000" value="<%= range %>" step="500">
             <span id="price_tooltip" class="tooltip">Sin límite</span>
           </div>
         </div>
@@ -49,24 +49,28 @@
       </form>
     </aside>
     
-    
-    <div class="shop_items">
-      <% characters.forEach(character => { %>
-        <a class="product_item" href="/shop/item/<%= character.id %>">
-          <figure>
-            <img src="<%= character.primary_image %>" alt="<%= character.name %>">
-          </figure>
-          <div class="product_description">
-            <span><%= character.brand_name %></span>
-            <h2><%= character.name %></h2>
-            <p><%= character.price %></p>
-            <div class="payment_methods">
-              <span><%= character.payments %></span>
+    <div class="shop_items" id="products">
+      <% if (characters.length === 0) { %>
+        <p>No se encontraron productos.</p>
+      <% } else { %>
+        <% characters.forEach(c => { %>
+          <a class="product_item" href="/shop/item/<%= c.id %>">
+            <figure>
+              <img src="<%= c.primary_image %>" alt="<%= c.name %>">
+            </figure>
+            <div class="product_description">
+              <span><%= c.brand_name %></span>
+              <h2><%= c.name %></h2>
+              <p><%= c.price %></p>
+              <div class="payment_methods">
+                <span><%= c.payments %></span>
+              </div>
             </div>
-          </div>
-        </a>
-        <% }); %>
+          </a>
+        <% }) %>
+      <% } %>
     </div>
+    
       
     <script src="../Javascript/shop.js"></script>
     <script src="../Javascript/tools/tooltip.js"></script>
