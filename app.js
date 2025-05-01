@@ -7,7 +7,8 @@ const path = require('path');
 
 const main_routes = require('./src/routes/main.routes');
 const shop_routes = require('./src/routes/shop.routes');
-const api_routes = require('./src/routes/api.routes');
+const data_routes = require('./src/routes/data.routes');
+const login_routes = require('./src/routes/login.routes');
 
 //Information
 const PORT = 14880
@@ -18,8 +19,9 @@ app.set('views', path.resolve(__dirname, './src/views'));
 
 app.use(express.static('public'));
 
-app.use('/api', api_routes);
+app.use('/login', login_routes);
 app.use('/shop', shop_routes);
+app.use('/data', data_routes);
 app.use('/', main_routes);
 
 app.listen(PORT, ()=> console.log(`Servidor corriendo en http://localhost:${PORT}`));

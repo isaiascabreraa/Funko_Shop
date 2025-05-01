@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 async function fetchCharacters() {
   try {
-    const res = await fetch('/api/characters');
+    const res = await fetch('/data/characters');
     characters = await res.json();
     renderProducts(characters);
   } catch (err) {

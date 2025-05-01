@@ -1,0 +1,33 @@
+
+.login form {
+    display: flex;
+    padding: 20px;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    gap: 25px;
+}
+
+.username {
+    font-family: 'Inter', sans-serif;
+    font-size: 3rem;
+}
+
+.password {
+    font-family: 'Inter', sans-serif;
+    font-size: 3rem;
+}
+
+.form_actions {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-family: 'Inter', sans-serif;
+    font-size: 2rem;
+}
+
+.form_actions button {
+    align-self: center;
+    width: 15em;
+}
+

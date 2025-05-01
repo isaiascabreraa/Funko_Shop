@@ -1,7 +1,7 @@
 
 const { get_characters } = require("../models/characters.model");
 
-const getCharactersApi = async (req, res) => {
+const getDataCharacters = async (req, res) => {
     try {
       const data = await get_characters();
       return res.json(data);
@@ -11,4 +11,4 @@ const getCharactersApi = async (req, res) => {
     }
   };
   
-  module.exports = { getCharactersApi };
+  module.exports = { getDataCharacters };
