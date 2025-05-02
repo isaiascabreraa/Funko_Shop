@@ -3,10 +3,18 @@
     <a href="/">
         <img src="../../Multimedia/Branding/logo_light_horizontal.svg" alt="Logo Funko_Shop"/> 
     </a>
-    <nav>
-        <a href="/shop"> SHOP </a>
-        <a href="/"> CONTACT </a>
-        <a href="/login"> LOGIN </a>
-        <a href="/"> TROLLEY </a>
-    </nav>
+
+    <% if (is_logged) { %>
+        <nav>
+            <a href="/shop"> SHOP </a>
+            <a href="/user/account"> ACCOUNT </a>
+            <a href="/user/cart"> CART </a>
+            <a href="/auth/logout"> LOGOUT </a>
+        </nav>
+    <% } else { %>
+        <nav>
+            <a href="/shop"> SHOP </a>
+            <a href="/auth/login"> LOGIN </a>
+        </nav>
+    <% } %>
 </header>

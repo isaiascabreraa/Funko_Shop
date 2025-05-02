@@ -18,10 +18,10 @@
   <main>
     
     <section class="login">
-        <form action="/login" method="POST">
+        <form action="/auth/login" method="POST">
 
-            <div class="username">
-                <input type="email" id="username" name="username" placeholder=" Correo electronico " required>
+            <div class="email">
+                <input type="email" id="email" name="email" placeholder=" Correo electronico " required>
             </div>
     
             <div class="password">
@@ -30,8 +30,8 @@
 
             <div class="form_actions">
                 <button type="submit">Iniciar sesion</button>
-                <a href="/login/identify">Ha olvidado su contraseña?</a>
-                <a href="/register">Crea una nueva cuenta</a>
+                <a href="/auth/identify">Ha olvidado su contraseña?</a>
+                <a href="/auth/register">Crea una nueva cuenta</a>
             </div>
 
         </form>
@@ -40,6 +40,6 @@
   </main>
   <%- include('../partials/footer')%>
     
-  </body>
+</body>
   
-  </html>
+</html>
