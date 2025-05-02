@@ -1,0 +1,55 @@
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="../../../Multimedia/Branding/isotype.svg">
+  <title>Funko Shop</title>
+  <link rel="stylesheet" href="../CSS/index.css">
+  <link rel="stylesheet" href="../CSS/pages/register.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <%- include('../partials/header')%>
+  <main>
+    
+    <section class="register">
+        <form action="/auth/register" method="POST">
+
+            <div class="firstname">
+                <input type="text" id="firstname" name="firstname" placeholder=" Nombre " required>
+            </div>
+
+            <div class="lastname">
+                <input type="text" id="lastname" name="lastname" placeholder=" Apellido " required>
+            </div>
+
+            <div class="age">
+                <input type="number" id="age" name="age" placeholder=" Edad " required>
+            </div>
+
+            <div class="email">
+                <input type="email" id="email" name="email" placeholder=" Correo electronico " required>
+            </div>
+    
+            <div class="password">
+                <input type="password" id="password" name="password" placeholder=" Contraseña " required>
+            </div>
+
+            <div class="form_actions">
+                <button type="submit">Registrarse</button>
+            </div>
+
+        </form>
+    </section>
+      
+  </main>
+  <%- include('../partials/footer')%>
+    
+</body>
+  
+</html>
