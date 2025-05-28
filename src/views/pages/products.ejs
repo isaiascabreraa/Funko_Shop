@@ -1,0 +1,60 @@
+
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../../../Multimedia/Branding/isotype.svg">
+    <title>Funko Shop</title>
+    <link rel="stylesheet" href="../../CSS/index.css">
+    <link rel="stylesheet" href="../../CSS/pages/products.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <%- include('../partials/header')%>
+    <main>
+        
+        <section class="account_products">
+            <div class="product-list">
+                <h2>LISTADO DE PRODUCTOS</h2>
+                <a href="/productos/agregar" class="add-button">+</a>
+                
+                <table>
+                <thead>
+                    <tr>
+                    <th>ID</th>
+                    <th>Código</th>
+                    <th>Nombre del Producto</th>
+                    <th>Categoría</th>
+                    <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% productos.forEach(function(producto, index) { %>
+                    <tr>
+                        <td><%= index + 1 %></td>
+                        <td><%= producto.codigo %></td>
+                        <td><%= producto.nombre %></td>
+                        <td><%= producto.categoria %></td>
+                        <td>
+                        <a href="/productos/editar/<%= producto.id %>" class="action-icon">✏️</a>
+                        <a href="/productos/eliminar/<%= producto.id %>" class="action-icon">🗑️</a>
+                        </td>
+                    </tr>
+                    <% }) %>
+                </tbody>
+                </table>
+            </div>
+        </section>
+
+    </main>
+    <%- include('../partials/footer')%>
+
+</body>
+
+</html>
