@@ -13,7 +13,7 @@ const pool_connection = mysql.createPool({
 
 pool_connection.getConnection((error, connection) => {
     if (error) {
-        console.error("Error al obtener una conexión", error);
+        console.error("No se pudo establecer una conexión", error);
     } else {
         console.log("Conexión exitosa a la Base de Datos");
         connection.release();

@@ -1,0 +1,142 @@
+
+USE funko_db;
+
+DROP TABLE IF EXISTS content;
+DROP TABLE IF EXISTS products;
+DROP TABLE IF EXISTS brands;
+DROP TABLE IF EXISTS users;
+
+-- Crear tabla de marcas
+CREATE TABLE brands (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL
+);
+
+-- Crear tabla de productos
+CREATE TABLE products (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    brand_id INT NOT NULL,
+    name VARCHAR(255) NOT NULL,
+    price DECIMAL(10, 2) NOT NULL,
+    payments VARCHAR(255),
+    description TEXT,
+    stock INT,
+    user_id INT,
+    FOREIGN KEY (brand_id) REFERENCES brands(id)
+);
+
+-- Crear tabla de imágenes
+CREATE TABLE content (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    product_id INT,
+    primary_image VARCHAR(255),
+    FOREIGN KEY (product_id) REFERENCES products(id)
+);
+
+-- Crear tabla de usuarios
+CREATE TABLE users (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    first_name VARCHAR(100) NOT NULL,
+    last_name VARCHAR(100) NOT NULL,
+    age INT CHECK (age > 0),
+    email VARCHAR(255) UNIQUE NOT NULL,
+    password_hash TEXT NOT NULL
+);
+
+-- Insertar marcas
+INSERT INTO brands (name) VALUES 
+    ('Star Wars'), 
+    ('Pokemon'), 
+    ('Harry Potter');
+
+-- Insertar productos
+INSERT INTO products (brand_id, name, price, payments, description, stock) VALUES
+(1, 'Bobbafeth', 1799.00, '3 CUOTAS SIN INTERES', '', 0),
+(2, 'Dragonite', 1799.00, '3 CUOTAS SIN INTERES', '', 0),
+(3, 'Hermione', 1799.00, '3 CUOTAS SIN INTERES', '', 0),
+(1, 'Luke Skywalker', 1799.00, '3 CUOTAS SIN INTERES', '', 0),
+(2, 'Pidgeotto', 1799.00, '3 CUOTAS SIN INTERES', '', 0),
+(3, 'Luna Lovegood', 1799.00, '3 CUOTAS SIN INTERES', '', 0),
+(2, 'Pikachu', 1799.00, '3 CUOTAS SIN INTERES', '', 0),
+(3, 'Snape Patronus', 1799.00, '3 CUOTAS SIN INTERES', '', 0),
+(1, 'Trooper', 1799.00, '3 CUOTAS SIN INTERES', '', 0),
+(2, 'Vulpix', 1799.00, '3 CUOTAS SIN INTERES', '', 0),
+(1, 'Baby Yoda Blue Ball', 1799.00, '3 CUOTAS SIN INTERES', '', 0),
+(2, 'Charmander', 1799.00, '3 CUOTAS SIN INTERES', '', 0),
+(3, 'Harry Potter', 1799.00, '3 CUOTAS SIN INTERES', '', 0);
+
+-- Insertar imágenes
+INSERT INTO content (product_id, primary_image) VALUES
+(1, '../../Multimedia/FunkosInterior/bobbafeth-1.webp'),
+(2, '../../Multimedia/FunkosInterior/dragonite-1.webp'),
+(3, '../../Multimedia/FunkosInterior/hermione-1.webp'),
+(4, '../../Multimedia/FunkosInterior/luke-1.webp'),
+(5, '../../Multimedia/FunkosInterior/pidgeotto-1.webp'),
+(6, '../../Multimedia/FunkosInterior/luna-1.webp'),
+(7, '../../Multimedia/FunkosInterior/pikachu-1.webp'),
+(8, '../../Multimedia/FunkosInterior/snape-patronus-1.webp'),
+(9, '../../Multimedia/FunkosInterior/trooper-1.webp'),
+(10, '../../Multimedia/FunkosInterior/vulpix-1.webp'),
+(11, '../../Multimedia/FunkosInterior/baby-yoda-1.webp'),
+(12, '../../Multimedia/FunkosInterior/charmander-1.webp'),
+(13, '../../Multimedia/FunkosInterior/harry-1.webp');
+
+-- Insertar usuario
+INSERT INTO users (first_name, last_name, age, email, password_hash)
+VALUES ('Isaias Augusto', 'Cabrera', 20, 'isaiascabrera20@gmail.com', 'contraseña');
+
+-- Actualizar productos con descripciones
+UPDATE products 
+SET description = 'Figura coleccionable de Bobbafeth, legendario cazarrecompensas mandaloriano de Star Wars.'
+WHERE name = 'Bobbafeth';
+
+UPDATE products 
+SET description = 'Figura coleccionable de Luke Skywalker, el Jedi que restauró el equilibrio en la Fuerza.'
+WHERE name = 'Luke Skywalker';
+
+UPDATE products 
+SET description = 'Figura coleccionable de un Stormtrooper. El soldado imperial más temido, en versión Funko Pop!'
+WHERE name = 'Trooper';
+
+UPDATE products 
+SET description = 'Figura coleccionable de Baby Yoda (Grogu) - The Mandalorian Saga, edición limitada.'
+WHERE name = 'Baby Yoda Blue Ball';
+
+UPDATE products 
+SET description = 'Figura coleccionable de Dragonite, el poderoso y amigable Pokémon dragón.'
+WHERE name = 'Dragonite';
+
+UPDATE products 
+SET description = 'Figura coleccionable de Pidgeotto, el ágil Pokémon volador de la región Kanto.'
+WHERE name = 'Pidgeotto';
+
+UPDATE products 
+SET description = 'Figura coleccionable de Pikachu, el Pokémon más querido.'
+WHERE name = 'Pikachu';
+
+UPDATE products 
+SET description = 'Figura coleccionable de Vulpix, el Pokémon zorro de fuego con seis colas elegantes.'
+WHERE name = 'Vulpix';
+
+UPDATE products 
+SET description = 'Figura coleccionable de Charmander, el inicial de tipo fuego.'
+WHERE name = 'Charmander';
+
+UPDATE products 
+SET description = 'Figura coleccionable de Hermione Granger, la bruja más brillante de su generación.'
+WHERE name = 'Hermione';
+
+UPDATE products 
+SET description = 'Figura coleccionable de Luna Lovegood, con sus icónicas gafas espectrales.'
+WHERE name = 'Luna Lovegood';
+
+UPDATE products 
+SET description = 'Figura coleccionable de Snape en forma de Patronus. Representación etérea del maestro más enigmático de Hogwarts.'
+WHERE name = 'Snape Patronus';
+
+UPDATE products 
+SET description = 'Figura coleccionable de Harry Potter, con su varita y cicatriz inconfundible.'
+WHERE name = 'Harry Potter';
+
+-- Asignar todos los productos al usuario Isaias
+UPDATE products SET user_id = 1 WHERE id > 0;
