@@ -1,23 +1,24 @@
 services:
-  db:
+  funko_postgre:
     image: postgres
     container_name: funko-postgres
     ports:
-      - 5432:5432
+      - ${DB_PORT}:5432
     environment:
       POSTGRES_USER: ${DB_USER}
       POSTGRES_PASSWORD: ${DB_PASSWORD}
       POSTGRES_DB: ${DB_DATABASE}
     volumes:
       - ./database:/docker-entrypoint-initdb.d
+      -  data:/var/lib/postgresql/data
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U ${DB_USER} -d ${DB_DATABASE}"]
       interval: 5s
       timeout: 3s
       retries: 5
 
-  funkoshop:
-    image: funko_node
+  funko_shop:
+    image: funko_shop
     container_name: funko-node
     ports:
       - 15000:14880
@@ -25,5 +26,8 @@ services:
     env_file:
       - .env
     depends_on:
-      db:
+      funko_postgre:
         condition: service_healthy
+
+volumes:
+  data: {}
