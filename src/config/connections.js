@@ -1,25 +1,25 @@
 
-const mysql = require('mysql2');
+const postgres = require('pg');
 
-const pool_connection = mysql.createPool({
+const pool = postgres.create({
     host: process.env.DB_HOST,
     user: process.env.DB_USER,
     password: process.env.DB_PASSWORD,
     database: process.env.DB_DATABASE,
     waitForConnections: true,
-    connectionLimit: process.env.DB_CONNECTION_LIMIT,
+    connectionLimit: 10,
     queueLimit: 0
 });
 
-pool_connection.getConnection((error, connection) => {
+pool.connect((error, client, release) => {
     if (error) {
-        console.error("No se pudo establecer una conexión", error);
+        console.error('No se pudo establecer una conexión', error.stack);
     } else {
-        console.log("Conexión exitosa a la Base de Datos");
-        connection.release();
+        console.log('Conexión exitosa a la Base de Datos PostgreSQL');
+        release();
     }
 });
 
 module.exports = {
-    conn: pool_connection.promise()
+    conn: pool
 };

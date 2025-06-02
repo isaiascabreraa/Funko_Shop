@@ -1,25 +1,23 @@
-
 services:
   db:
-    image: mysql
-    container_name: funko-mysql
+    image: postgres
+    container_name: funko-postgres
     ports:
-    - 3306:3306
+      - 5432:5432
     environment:
-      MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
-      MYSQL_DATABASE: ${DB_DATABASE}
-      MYSQL_USER: ${DB_USER}
-      MYSQL_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_DB: ${DB_DATABASE}
     volumes:
       - ./database:/docker-entrypoint-initdb.d
     healthcheck:
-      test: ["CMD", "mysqladmin", "ping", "-u${DB_USER}", "-p${DB_PASSWORD}"]
+      test: ["CMD-SHELL", "pg_isready -U ${DB_USER} -d ${DB_DATABASE}"]
       interval: 5s
       timeout: 3s
       retries: 5
 
   funkoshop:
-    image: funkoshop
+    image: funko_node
     container_name: funko-node
     ports:
       - 15000:14880
