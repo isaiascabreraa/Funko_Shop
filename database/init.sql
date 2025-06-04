@@ -47,7 +47,7 @@ INSERT INTO brands (name) VALUES
 
 -- Insertar usuario.
 INSERT INTO users (first_name, last_name, age, email, password_hash) VALUES
-    ('root_firstname', 'root_lastname', 100, 'admin@gmail.com', 'hash1234');
+    ('root_firstname', 'root_lastname', 100, 'admin@gmail.com', 'root_password');
 
 -- Insertar productos con descripciones completas.
 INSERT INTO products (brand_id, name, price, payments, description, stock) VALUES
