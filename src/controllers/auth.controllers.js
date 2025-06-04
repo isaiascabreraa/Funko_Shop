@@ -1,29 +1,68 @@
 
-//DEBERIA CORROBORLAS CON LA BDD
-const credentials = {
-    email: "isaiascabrera20@gmail.com",
-    password: "contraseña123",
-}
-
 const login = async (req, res) => {
     res.render('./pages/login.ejs');
 }
 
 const login_submit = async (req, res) => {
-    const {email, password} = req.body;
-    const validate_email = credentials.email == email;
-    const validate_password = credentials.password == password;
-    req.session.is_logged = (validate_email && validate_password) ? true : false;
 
-    if (req.session.is_logged) {
-        res.locals.is_logged = true;
-        return res.redirect('/shop');
+    try {
+        const { authenticate_user } = require('../models/authentication.model');
+
+        const {email, password} = req.body
+        if (!email || !password) {
+            return res.render('./pages/register.ejs', { error: 'Todos los campos son obligatorios' });
+        }
+
+        const result = await authenticate_user(email, password);
+
+        if (result.status === 'OK') {
+            req.session.is_logged = true;         
+            res.locals.is_logged = true;
+            return res.redirect('/shop');
+        }
+
+        req.session.is_logged = false;
+        res.locals.is_logged = false;
+
+        return res.render('./pages/login.ejs', { error: 'Email o contraseña incorrectos' });
+
+    } catch (error) {
+        console.error('Error en login_submit:', error);
+        return res.render('./pages/login.ejs', { error: 'Error inesperado, intente nuevamente.' });
     }
-    res.render('./pages/login.ejs');
 }
+
 
 const register = (req, res) => {
     res.render('./pages/register.ejs');
+}
+
+const register_submit = async (req, res) => {
+
+    try {
+        const { register_user } = require('../models/authentication.model');
+
+        const data = req.body;
+        if (!data.email || !data.password) {
+            return res.render('./pages/register.ejs', { error: 'Todos los campos son obligatorios' });
+        }
+
+        const result = await register_user(data);
+        if (result.status === 'USER_ALREADY_EXISTS') {
+            return res.render('./pages/register.ejs', { error: 'Ya existe un usuario con ese email.' });
+        }
+
+        if (result.status === 'ERROR') {
+            return res.render('./pages/register.ejs', { error: 'Ocurrió un error al registrar.' });
+        }
+
+        return res.redirect('/shop');
+    
+    } catch (error) {
+        console.error('Error en register_submit:', error);
+        return res.render('./pages/register.ejs', { error: 'Error inesperado, intente nuevamente.' });
+    }
+
 }
 
 const logout = (req, res) => {
@@ -35,5 +74,6 @@ module.exports = {
     login,
     login_submit,
     register,
+    register_submit,
     logout
 }
