@@ -1,16 +1,16 @@
--- Eliminar tablas si existen
+-- Eliminar tablas si existen.
 DROP TABLE IF EXISTS content;
 DROP TABLE IF EXISTS products;
 DROP TABLE IF EXISTS brands;
 DROP TABLE IF EXISTS users;
 
--- Crear tabla de marcas
+-- Crear tabla de marcas.
 CREATE TABLE brands (
     id   SERIAL PRIMARY KEY,
     name VARCHAR(255) NOT NULL
 );
 
--- Crear tabla de usuarios
+-- Crear tabla de usuarios.
 CREATE TABLE users (
     id            SERIAL PRIMARY KEY,
     first_name    VARCHAR(100) NOT NULL,
@@ -20,7 +20,7 @@ CREATE TABLE users (
     password_hash TEXT NOT NULL
 );
 
--- Crear tabla de productos
+-- Crear tabla de productos.
 CREATE TABLE products (
     id          SERIAL PRIMARY KEY,
     brand_id    INT NOT NULL REFERENCES brands(id),
@@ -32,24 +32,24 @@ CREATE TABLE products (
     user_id     INT REFERENCES users(id)
 );
 
--- Crear tabla de contenido (imágenes)
+-- Crear tabla de contenido (imágenes).
 CREATE TABLE content (
     id            SERIAL PRIMARY KEY,
     product_id    INT REFERENCES products(id),
     primary_image VARCHAR(255)
 );
 
--- Insertar marcas
+-- Insertar marcas.
 INSERT INTO brands (name) VALUES 
     ('Star Wars'),
     ('Pokemon'),
     ('Harry Potter');
 
--- Insertar usuario
+-- Insertar usuario.
 INSERT INTO users (first_name, last_name, age, email, password_hash) VALUES
     ('root_firstname', 'root_lastname', 100, 'admin@gmail.com', 'hash1234');
 
--- Insertar productos con descripciones completas
+-- Insertar productos con descripciones completas.
 INSERT INTO products (brand_id, name, price, payments, description, stock) VALUES
     (1, 'Bobbafeth',            1799.00, '3 CUOTAS SIN INTERES', 'Figura coleccionable de Bobbafeth, legendario cazarrecompensas mandaloriano de Star Wars.', 0),
     (2, 'Dragonite',            1799.00, '3 CUOTAS SIN INTERES', 'Figura coleccionable de Dragonite, el poderoso y amigable Pokémon dragón.', 0),
@@ -65,7 +65,7 @@ INSERT INTO products (brand_id, name, price, payments, description, stock) VALUE
     (2, 'Charmander',           1799.00, '3 CUOTAS SIN INTERES', 'Figura coleccionable de Charmander, el inicial de tipo fuego.', 0),
     (3, 'Harry Potter',         1799.00, '3 CUOTAS SIN INTERES', 'Figura coleccionable de Harry Potter, con su varita y cicatriz inconfundible.', 0);
 
--- Insertar imágenes
+-- Insertar imágenes.
 INSERT INTO content (product_id, primary_image) VALUES
     (1,  '../../Multimedia/FunkosInterior/bobbafeth-1.webp'),
     (2,  '../../Multimedia/FunkosInterior/dragonite-1.webp'),
@@ -81,5 +81,5 @@ INSERT INTO content (product_id, primary_image) VALUES
     (12, '../../Multimedia/FunkosInterior/charmander-1.webp'),
     (13, '../../Multimedia/FunkosInterior/harry-1.webp');
 
--- Asignar todos los productos al usuario Isaias
+-- Asignar todos los productos al usuario admin.
 UPDATE products SET user_id = 1;
