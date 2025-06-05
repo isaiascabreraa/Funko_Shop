@@ -15,9 +15,10 @@ const login_submit = async (req, res) => {
 
         const result = await authenticate_user(email, password);
 
-        if (result.status === 'OK') {
-            req.session.is_logged = true;         
+        if (result.status === 'OK') {   
             res.locals.is_logged = true;
+            req.session.is_logged = true;
+            req.session.user_id = result.user_id;
             return res.redirect('/shop');
         }
 

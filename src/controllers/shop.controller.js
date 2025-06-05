@@ -1,7 +1,7 @@
 
 const shop = async (req, res) => {
-    const { get_characters } = require("../models/characters.model");
-    const data = await get_characters();
+    const { get_all_characters } = require("../models/characters.model");
+    const data = await get_all_characters();
 
     if (!data || data.length === 0) {
         return res.status(404).send("Producto no encontrado");
@@ -11,14 +11,13 @@ const shop = async (req, res) => {
     const search = req.query.search;
     const sort   = req.query.sort;
     const range  = req.query.range;
-    
     res.render('./pages/shop.ejs', { characters, search, sort, range });
 }
 
 const item = async (req, res) => {
-    const { get_character, get_brand_characters } = require("../models/characters.model");
+    const { get_character_by_id, get_brand_characters } = require("../models/characters.model");
 
-    const data = await get_character(req.params.id);
+    const data = await get_character_by_id(req.params.id);
     if (!data || data.length === 0) {
         return res.status(404).send("Producto no encontrado");
     }
