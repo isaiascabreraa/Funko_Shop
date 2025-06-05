@@ -1,7 +1,7 @@
 
 const home = async (req, res) => {
-    const { get_characters } = require("../models/characters.model");
-    const data = await get_characters();
+    const { get_all_characters } = require("../models/characters.model");
+    const data = await get_all_characters();
 
     if (!data || data.length === 0) {
         return res.status(404).send("Productos no encontrados");

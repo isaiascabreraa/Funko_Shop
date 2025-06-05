@@ -46,9 +46,16 @@ const get_brand_characters = async (brand) => {
     return result.rows;
 }
 
+const add_character = async (data) => {
+
+    //const result = await conn.query(``, [data.name, data.description]);
+    console.log(data);
+}
+
 module.exports = {
     get_character_by_id,
     get_characters_by_user,
     get_all_characters,
     get_brand_characters,
+    add_character
 };

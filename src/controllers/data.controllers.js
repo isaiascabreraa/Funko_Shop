@@ -1,9 +1,9 @@
 
-const { get_characters } = require("../models/characters.model");
+const { get_all_characters } = require("../models/characters.model");
 
 const getDataCharacters = async (req, res) => {
     try {
-      const data = await get_characters();
+      const data = await get_all_characters();
       return res.json(data);
     } catch (err) {
       console.error(err);

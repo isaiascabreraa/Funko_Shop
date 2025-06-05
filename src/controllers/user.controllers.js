@@ -12,7 +12,26 @@ const products = async (req, res) => {
     res.render('./pages/products.ejs', {products});
 }
 
+const add_products = async (req, res) => {
+    res.render('./pages/add_products.ejs');
+}
+
+const add_products_submit = async (req, res) => {
+
+    const { add_characters } = require('../models/characters.model');
+    const data = req.body;
+
+    //Hago los chequeos necesarios.
+
+    //Si todo esta ok entonces...
+
+    added_product = add_characters(data);
+}
+
+
 module.exports = {
     account,
-    products
+    products,
+    add_products,
+    add_products_submit
 }
