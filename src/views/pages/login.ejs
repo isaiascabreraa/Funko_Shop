@@ -18,6 +18,11 @@
   <main>
     
     <section class="login">
+
+        <div class="login_paragraph">
+          <h1>INGRESAR A MI CUENTA</h1>
+        </div>
+
         <form action="/auth/login" method="POST">
 
             <div class="email">
@@ -28,9 +33,15 @@
                 <input type="password" id="password" name="password" placeholder=" Contraseña " required>
             </div>
 
+            <% if (error) { %>
+              <div class="error_message">
+                <p><%= error %> </p>
+              </div>
+            <% } %>
+
             <div class="form_actions">
                 <button type="submit">Iniciar sesion</button>
-                <a href="/auth/identify">Ha olvidado su contraseña?</a>
+                <a href="/auth/identify">¿Has olvidado tu contraseña?</a>
                 <a href="/auth/register">Crea una nueva cuenta</a>
             </div>
 

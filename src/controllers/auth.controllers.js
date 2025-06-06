@@ -1,6 +1,6 @@
 
 const login = async (req, res) => {
-    res.render('./pages/login.ejs');
+    res.render('./pages/login.ejs', { error: null });
 }
 
 const login_submit = async (req, res) => {
@@ -15,16 +15,19 @@ const login_submit = async (req, res) => {
 
         const result = await authenticate_user(email, password);
 
-        if (result.status === 'OK') {
-            req.session.is_logged = true;         
+        if (result.status === 'OK') {   
             res.locals.is_logged = true;
-            return res.redirect('/shop');
+            req.session.is_logged = true;
+
+            console.log(result.user.id);
+            req.session.user_id = result.user.id;
+            return res.redirect('/');
         }
 
         req.session.is_logged = false;
         res.locals.is_logged = false;
 
-        return res.render('./pages/login.ejs', { error: 'Email o contraseña incorrectos' });
+        return res.render('./pages/login.ejs', { error: 'Email y/o contraseña incorrectos. Intente nuevamente' });
 
     } catch (error) {
         console.error('Error en login_submit:', error);
@@ -67,7 +70,7 @@ const register_submit = async (req, res) => {
 
 const logout = (req, res) => {
     req.session = null;
-    res.render('./pages/login.ejs');
+    res.render('./pages/login.ejs', { error: null });
 }
 
 module.exports = {

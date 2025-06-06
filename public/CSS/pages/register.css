@@ -1,1 +1,48 @@
 
+@import url('../palette.css');
+
+.register_paragraph {
+    display: flex;
+    margin: 20px;
+    justify-content: center;
+}
+
+.register_paragraph h1 {
+    font-family: 'Raleway', sans-serif;
+    font-size: 20em;
+}
+
+.register form {
+    display: flex;
+    padding: 20px;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    gap: 25px;
+}
+
+.firstname, .lastname, .age, .email, .password {
+    font-family: 'Inter', sans-serif;
+    font-size: 3rem;
+}
+
+.form_actions {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-family: 'Inter', sans-serif;
+    font-size: 2rem;
+}
+
+.form_actions button {
+    height: 2em;
+    width: 10em;
+    align-self: center;
+    font-size: 1.6rem;
+    font-family: 'Inter', sans-serif;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    color: var(--color-texto);
+    background-color: var(--color-button);
+}
