@@ -1,4 +1,17 @@
 
+@import url('../palette.css');
+
+.login_paragraph {
+    display: flex;
+    margin: 20px;
+    justify-content: center;
+}
+
+.login_paragraph h1 {
+    font-family: 'Raleway', sans-serif;
+    font-size: 20em;
+}
+
 .login form {
     display: flex;
     padding: 20px;
@@ -26,8 +39,28 @@
     font-size: 2rem;
 }
 
-.form_actions button {
-    align-self: center;
-    width: 15em;
+.form_actions a {
+    font-size: 2rem;
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    color: rgb(35, 100, 200);
 }
 
+.form_actions button {
+    height: 2em;
+    width: 10em;
+    align-self: center;
+    font-size: 1.6rem;
+    font-family: 'Inter', sans-serif;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    color: var(--color-texto);
+    background-color: var(--color-button);
+}
+
+.error_message {
+    font-family: 'Inter', sans-serif;
+    font-size: 2rem;
+    color: var(--color-warning);
+}

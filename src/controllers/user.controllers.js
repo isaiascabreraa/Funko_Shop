@@ -7,13 +7,11 @@ const products = async (req, res) => {
 
     const { get_characters_by_user } = require('../models/characters.model');
     const data = await get_characters_by_user(req.session.user_id)
-
-    const products = data[0]
-    res.render('./pages/products.ejs', {products});
+    res.render('./pages/products.ejs', { products: data });
 }
 
 const add_products = async (req, res) => {
-    res.render('./pages/add_products.ejs');
+    res.render('./pages/add_product.ejs');
 }
 
 const add_products_submit = async (req, res) => {

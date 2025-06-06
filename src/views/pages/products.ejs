@@ -27,27 +27,26 @@
                     <th>Código</th>
                     <th>Nombre del Producto</th>
                     <th>Categoría</th>
-                    <th>Acciones</th>
+                    <th>Editar/Borrar</th>
                     </tr>
                 </thead>
-                <tbody>
-                     <% if (products && products.length > 0) { %>
-                        <% let index = 1; %>
-                        <% products.forEach(product => { %>
-                            <tr>
-                                <td><%= index++ %></td>
-                                <td><%= product.id %></td>
-                                <td><%= product.name %></td>
-                                <td><%= product.category %></td>
-                                <td>
-                                    <a href="/products/editar/<%= product.id %>" class="action-icon">✏️</a>
-                                    <a href="/products/eliminar/<%= product.id %>" class="action-icon">🗑️</a>
-                                </td>
-                            </tr>
-                        <% }); %>
-                    <% } %>
-
-                </tbody>
+                    <tbody>
+                        <% if (products && products.length > 0) { %>
+                            <% let index = 1;%>
+                            <% products.forEach(product => { %>
+                                <tr>
+                                    <td><%= index++ %></td>
+                                    <td><%= product.id %></td>
+                                    <td><%= product.name %></td>
+                                    <td><%= product.brand_name  %></td>
+                                    <td>
+                                        <a href="/products/editar/<%= product.id %>" class="action-icon">✏️</a>
+                                        <a href="/products/eliminar/<%= product.id %>" class="action-icon">🗑️</a>
+                                    </td>
+                                </tr>
+                            <% }); %>
+                        <% } %>
+                    </tbody>
                 </table>
             </div>
         </section>

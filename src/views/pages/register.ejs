@@ -18,8 +18,12 @@
   <main>
     
     <section class="register">
-        <form action="/auth/register" method="POST">
 
+        <div class="register_paragraph">
+          <h1>CREAR A MI CUENTA</h1>
+        </div>
+
+        <form action="/auth/register" method="POST">
             <div class="firstname">
                 <input type="text" id="firstname" name="firstname" placeholder=" Nombre " required>
             </div>
@@ -29,7 +33,7 @@
             </div>
 
             <div class="age">
-                <input type="number" id="age" name="age" placeholder=" Edad " required>
+                <input type="number" id="age" name="age" placeholder=" Edad " min="18" required>
             </div>
 
             <div class="email">
@@ -43,7 +47,6 @@
             <div class="form_actions">
                 <button type="submit">Registrarse</button>
             </div>
-
         </form>
     </section>
       

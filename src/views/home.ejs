@@ -28,26 +28,28 @@
                     <p> Descubre el proximo FunkoPop de tu coleccion </p>
                 </div>
                 <div class="banner_nav">
-                    <a href="/"> SHOP </a>
+                    <a href="/shop"> SHOP </a>
                 </div>
         </section>
 
-        <section class="home_items">
-          <% featured_characters.forEach(character => { %>
-            <div class="product_item">
-              <figure>
-                <img src="<%= character.primary_image %>" alt="<%= character.name %>">
-              </figure>
-              <div class="product_description">
-                <p><%= character.brand_name %></p>
-                <h2><%= character.name %></h2>
-                <p><%= character.description %></p>
-                <div>
-                  <a href="/shop">VER COLECCIÓN</a>
+        <section class="home_section">
+          <div class="home_items">
+            <% featured_characters.forEach(character => { %>
+              <div class="product_item">
+                <figure>
+                  <img src="<%= character.primary_image %>" alt="<%= character.name %>">
+                </figure>
+                <div class="product_description">
+                  <p><%= character.brand_name %></p>
+                  <h2><%= character.name %></h2>
+                  <p><%= character.description %></p>
+                  <div>
+                    <a href="/shop">VER COLECCIÓN</a>
+                  </div>
                 </div>
               </div>
-            </div>
-          <% }) %>
+            <% }) %>
+          </div>
         </section>
         
       </main>

@@ -1,8 +1,11 @@
 
+@import url('../palette.css');
+
 header {
     display: flex;
+    padding: 5em;
     justify-content: space-between;
-    background-color: rgb(60, 60, 60)
+    background-color: var(--color-fondo);
 }
 
 header img {
