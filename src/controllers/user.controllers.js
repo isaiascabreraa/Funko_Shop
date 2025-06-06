@@ -18,14 +18,22 @@ const add_products = async (req, res) => {
 
 const add_products_submit = async (req, res) => {
 
-    const { add_characters } = require('../models/characters.model');
+    const { add_character } = require('../models/characters.model');
     const data = req.body;
+    const file = req.files;
+    const user_id = req.session.user_id;
 
     //Hago los chequeos necesarios.
-
     //Si todo esta ok entonces...
 
-    added_product = add_characters(data);
+    try {
+        await add_character(data, file, user_id);
+        return res.redirect('/shop');
+
+    } catch (error) {
+        console.error(error);
+        return res.status(500).send('Error al agregar el producto');
+    }
 }
 
 
