@@ -27,7 +27,6 @@ services:
       - 15000:14880
     volumes:
       - .:/usr/src/app
-      - node_modules:/usr/src/app/node_modules
     command: "npm run dev"
     env_file:
       - .env
@@ -37,4 +36,3 @@ services:
 
 volumes:
   data: {}
-  node_modules: {}
