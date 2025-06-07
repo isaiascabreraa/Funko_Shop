@@ -61,10 +61,10 @@ const register_user = async (data) => {
         const hashed_password = await bcrypt.hash(data.password, 12);
 
         const result = await conn.query(`
-            INSERT INTO users (first_name, last_name, email, password_hash)
+            INSERT INTO users (first_name, last_name, age, email, password_hash)
             VALUES ($1, $2, $3, $4)
             RETURNING id;
-        `, [data.firstname, data.lastname, data.email, hashed_password]);
+        `, [data.firstname, data.lastname, data.age, data.email, hashed_password]);
 
         return { status: 'OK', id: result.rows[0].id };
 

@@ -17,19 +17,20 @@
     <main>
         <section class="account_products">
             <div class="product-list">
-                <h2>LISTADO DE PRODUCTOS</h2>
-                <a href="/products/agregar" class="add-button">+</a>
-                
+                <div>
+                    <h2>LISTADO DE PRODUCTOS</h2>
+                </div>
                 <table>
-                <thead>
-                    <tr>
-                    <th>ID</th>
-                    <th>Código</th>
-                    <th>Nombre del Producto</th>
-                    <th>Categoría</th>
-                    <th>Editar/Borrar</th>
-                    </tr>
-                </thead>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Código</th>
+                            <th>Nombre del Producto</th>
+                            <th>Categoría</th>
+                            <th></th>
+                            <th></th>
+                        </tr>
+                    </thead>
                     <tbody>
                         <% if (products && products.length > 0) { %>
                             <% let index = 1;%>
@@ -41,6 +42,8 @@
                                     <td><%= product.brand_name  %></td>
                                     <td>
                                         <a href="/products/editar/<%= product.id %>" class="action-icon">✏️</a>
+                                    </td>
+                                    <td>
                                         <a href="/products/eliminar/<%= product.id %>" class="action-icon">🗑️</a>
                                     </td>
                                 </tr>
@@ -50,7 +53,6 @@
                 </table>
             </div>
         </section>
-
     </main>
     <%- include('../partials/footer')%>
 

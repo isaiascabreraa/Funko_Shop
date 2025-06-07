@@ -1,7 +1,6 @@
 
 const { conn } = require('../config/connections');
 
-
 const get_character_by_id = async (product_id) => {
     const result = await conn.query(`
         SELECT p.id, p.name, p.price, p.payments, p.description, p.stock, c.primary_image, b.name AS brand_name

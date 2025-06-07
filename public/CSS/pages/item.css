@@ -1,4 +1,6 @@
 
+@import url('../misc/palette.css');
+
 /* ITEM */
 .item {
     display: flex;

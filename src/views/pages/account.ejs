@@ -18,18 +18,31 @@
     <%- include('../partials/header')%>
     <main>
 
-        <aside>
-            <a href="/user/products">Mis productos</a>
-            <a href="/user/add_products">Agregar productos</a>
-        </aside>
+        <div class="account_paragraph">
+            <h1> Mi cuenta </h1>
+        </div>
+
+        <section class="account_content">
+
+            <aside class="account_sidebar">
+                <a href="/user/products" class="sidebar-link">Mis productos</a>
+                <a href="/user/add_products" class="sidebar-link">Agregar productos</a>
+            </aside>
         
-        <section class="account_details">
+            <section class="account_details">
+                
+                <div class="user_details">
+                    <h2>Datos de mi cuenta</h2>
+                    <p>Nombre: <%= user.first_name %> <%= user.last_name %></p>
+                    <p>Edad: <%= user.age %> años</p>
+                    <p>Email: <%= user.email %></p>
+                </div>
 
-            <div>
-                <p>Hola, esta es mi cuenta.</p>
-            </div>
+                <div>
+                    <a href="/auth/logout" class="logout-button">Cerrar sesión</a>
+                </div>
 
-            <a href="/auth/logout"> CERRAR SESIÓN </a>
+            </section>
 
         </section>
 
