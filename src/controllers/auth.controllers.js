@@ -18,8 +18,6 @@ const login_submit = async (req, res) => {
         if (result.status === 'OK') {   
             res.locals.is_logged = true;
             req.session.is_logged = true;
-
-            console.log(result.user.id);
             req.session.user_id = result.user.id;
             return res.redirect('/');
         }

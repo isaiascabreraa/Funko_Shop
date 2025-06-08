@@ -13,6 +13,7 @@ const auth_routes = require('./src/routes/auth.routes');
 const user_routes = require('./src/routes/user.routes');
 
 //Information
+const IP = '0.0.0.0'
 const PORT = 14880
 
 //Template Engines
@@ -30,4 +31,4 @@ app.use('/shop', shop_routes);
 app.use('/data', data_routes);
 app.use('/', main_routes);
 
-app.listen(PORT, ()=> console.log(`Servidor corriendo en http://localhost:${PORT}`));
+app.listen(PORT, ()=> console.log(`Servidor corriendo en http://${IP}:${PORT}`));

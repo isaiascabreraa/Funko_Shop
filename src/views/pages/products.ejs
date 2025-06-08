@@ -41,10 +41,14 @@
                                     <td><%= product.name %></td>
                                     <td><%= product.brand_name  %></td>
                                     <td>
-                                        <a href="/products/editar/<%= product.id %>" class="action-icon">✏️</a>
+                                        <a href="/products/editar/<%= product.id %>" class="action-icon">
+                                            <img src="../../Multimedia/Iconos/edit_pencil.svg" alt="Editar" class="edit-icon"> 
+                                        </a>
                                     </td>
                                     <td>
-                                        <a href="/products/eliminar/<%= product.id %>" class="action-icon">🗑️</a>
+                                        <a href="/products/eliminar/<%= product.id %>" class="action-icon">
+                                            <img src="../../Multimedia/Iconos/delete_trash.svg" alt="Eliminar" class="delete-icon"> 
+                                        </a>
                                     </td>
                                 </tr>
                             <% }); %>

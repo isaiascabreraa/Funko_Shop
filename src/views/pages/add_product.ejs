@@ -6,7 +6,7 @@
     <link rel="icon" href="../../../Multimedia/Branding/isotype.svg">
     <title>Funko Shop</title>
     <link rel="stylesheet" href="../../CSS/index.css">
-    <link rel="stylesheet" href="../../CSS/pages/add_products.css">
+    <link rel="stylesheet" href="../../CSS/pages/add_product.css">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 </head>
@@ -15,57 +15,61 @@
     <%- include('../partials/header')%>
 
     <main>
-        <h1>CREAR NUEVO ITEM</h1>
 
-        <form class="product_data" action="/user/add_products" method="POST" enctype="multipart/form-data">
+        <section class="product_data">
+            <h1>AGREGAR PRODUCTO</h1>
 
-            <div class="form_group">
-                <label for="nombre">Nombre del producto:</label>
-                <input type="text" id="nombre" name="nombre" required>
-            </div>
+            <form class="create_product" action="/user/add_products" method="POST" enctype="multipart/form-data">
 
-            <div class="form_group">
-                <label for="marca">Marca:</label>
-                <input type="text" id="marca" name="marca" required>
-            </div>
+                <div class="form_group">
+                    <label for="nombre">Nombre del producto:</label>
+                    <input type="text" id="nombre" name="nombre" required>
+                </div>
 
-            <div class="form_group">
-                <label for="descripcion">Descripción:</label>
-                <textarea id="descripcion" name="descripcion" rows="4" placeholder="Escribí una breve descripción del producto..." required></textarea>
-            </div>
+                <div class="form_group">
+                    <label for="marca">Marca:</label>
+                    <input type="text" id="marca" name="marca" required>
+                </div>
 
-            <div class="form_group">
-                <label for="precio">Precio:</label>
-                <input type="number" id="precio" name="precio" min="0" step="100" required>
-            </div>
+                <div class="form_group">
+                    <label for="descripcion">Descripción:</label>
+                    <textarea id="descripcion" name="descripcion" rows="4" placeholder="Escribí una breve descripción del producto..." required></textarea>
+                </div>
 
-            <div class="form_group">
-                <label for="stock">Stock:</label>
-                <input type="number" id="stock" name="stock" min="0" step="1" required>
-            </div>
+                <div class="form_group">
+                    <label for="precio">Precio:</label>
+                    <input type="number" id="precio" name="precio" min="0" step="100" required>
+                </div>
 
-            <div class="form_group">
-                <label for="cuotas">Cuotas:</label>
-                <select id="cuotas" name="cuotas" required>
-                    <option value="" disabled selected>Seleccioná una opción</option>
-                    <option value="0">Sin cuotas</option>
-                    <option value="3">3 Cuotas sin interés</option>
-                    <option value="6">6 Cuotas sin interés</option>
-                    <option value="9">9 Cuotas sin interés</option>
-                </select>
-            </div>
+                <div class="form_group">
+                    <label for="stock">Stock:</label>
+                    <input type="number" id="stock" name="stock" min="0" step="1" required>
+                </div>
 
-            <div class="form_group">
-                <label for="imagenes">Imágenes:</label>
-                <input type="file" id="product_img" name="imagenes" accept="image/*" multiple required>
-            </div>
+                <div class="form_group">
+                    <label for="cuotas">Cuotas:</label>
+                    <select id="cuotas" name="cuotas" required>
+                        <option value="" disabled selected>Seleccione una opción</option>
+                        <option value="0">Sin cuotas sin interés</option>
+                        <option value="3">3 Cuotas sin interés</option>
+                        <option value="6">6 Cuotas sin interés</option>
+                        <option value="9">9 Cuotas sin interés</option>
+                    </select>
+                </div>
 
-            <div class="form_buttons">
-                <button type="submit">Agregar producto</button>
-                <button type="reset">Limpiar</button>
-            </div>
+                <div class="form_group">
+                    <label for="imagenes">Imágenes:</label>
+                    <input type="file" id="product_img" name="imagenes" accept="image/*" multiple required>
+                </div>
 
-        </form>
+                <div class="form_buttons">
+                    <button type="submit">Agregar producto</button>
+                    <button type="reset">Limpiar</button>
+                </div>
+
+            </form>
+        </section>
+
     </main>
 
     <%- include('../partials/footer')%>
