@@ -57,7 +57,10 @@ const register_submit = async (req, res) => {
             return res.render('./pages/register.ejs', { error: 'Ocurrió un error al registrar.' });
         }
 
-        return res.redirect('/shop');
+        req.session.is_logged = true;
+        req.session.user_id = result.user_id;
+        res.locals.is_logged = true;
+        return res.redirect('/');
     
     } catch (error) {
         console.error('Error en register_submit:', error);
