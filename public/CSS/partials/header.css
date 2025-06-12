@@ -3,9 +3,17 @@
 
 header {
     display: flex;
-    padding: 5em;
+    padding: 2.5rem;
     justify-content: space-between;
     background-color: var(--color-fondo);
+}
+
+@media (max-width: 600px) {
+    header {
+        flex-direction: column;
+        align-items: center;
+        gap: 5px;
+    }
 }
 
 header img {
@@ -29,7 +37,7 @@ header a {
     color: rgb(255, 255, 255);
 }
 
-.logout-icon, .cart-icon {
+.logout-icon, .cart-icon, .login-icon {
     height: 30px;
     width: 30px;
 }

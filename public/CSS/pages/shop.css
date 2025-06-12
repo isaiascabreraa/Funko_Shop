@@ -16,6 +16,25 @@ main {
     flex-direction: column;
     gap: 20px;
 }
+.sidebar_toggle {
+  display: none;
+}
+
+@media (max-width: 600px) {
+  .shop_sidebar {
+    display: none;
+  }
+
+  .sidebar_toggle {
+    display: block;
+    font-size: 1.8rem;
+    padding: 10px 15px;
+    color: var(--color-button);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+}
 
 
 .shop_search input {

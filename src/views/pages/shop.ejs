@@ -17,37 +17,40 @@
   <%- include('../partials/header')%>
   <main>
     
-    <aside class="shop_sidebar">
-      <form action="/shop" method="GET" id="shop_filters">
+    <div>
+      <button id="toggle_sidebar" class="sidebar_toggle">☰</button>
+      <aside class="shop_sidebar">
+        <form action="/shop" method="GET" id="shop_filters">
 
-        <div class="shop_search">
-          <label for="search">Buscar:</label>
-          <input type="text" id="items_search" name="search" value="<%= search %>">
-        </div>
-        
-        <div class="shop_order">
-          <label for="sort">Ordenar por:</label><br>
-          <select id="items_sort" name="sort">
-            <option value=""></option>
-            <option value="precio_asc" <%= sort==='precio_asc'? 'selected' : '' %>>Menor precio</option>
-            <option value="precio_desc" <%= sort==='precio_desc'? 'selected' : '' %>>Mayor precio</option>
-          </select>
-        </div>
-        
-        <div class="shop_price">
-          <label for="range">Precio</label>
-          <div>
-            <input type="range" id="items_range"  name="range" min="0" max="10000" value="<%= range %>" step="500">
-            <span id="price_tooltip" class="tooltip">Sin límite</span>
+          <div class="shop_search">
+            <label for="search">Buscar:</label>
+            <input type="text" id="items_search" name="search" value="<%= search %>">
           </div>
-        </div>
-        
-        <div class="shop_submit">
-          <button type="submit" class="submit_btn">Aplicar Filtros</button>
-        </div>
+          
+          <div class="shop_order">
+            <label for="sort">Ordenar por:</label><br>
+            <select id="items_sort" name="sort">
+              <option value=""></option>
+              <option value="precio_asc" <%= sort==='precio_asc'? 'selected' : '' %>>Menor precio</option>
+              <option value="precio_desc" <%= sort==='precio_desc'? 'selected' : '' %>>Mayor precio</option>
+            </select>
+          </div>
+          
+          <div class="shop_price">
+            <label for="range">Precio</label>
+            <div>
+              <input type="range" id="items_range"  name="range" min="0" max="10000" value="<%= range %>" step="500">
+              <span id="price_tooltip" class="tooltip">Sin límite</span>
+            </div>
+          </div>
+          
+          <div class="shop_submit">
+            <button type="submit" class="submit_btn">Aplicar Filtros</button>
+          </div>
 
-      </form>
-    </aside>
+        </form>
+      </aside>
+    </div>
     
     <div class="shop_items" id="products">
       <% if (characters.length === 0) { %>
