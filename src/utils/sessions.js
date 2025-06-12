@@ -2,7 +2,7 @@
 const session = require('cookie-session');
 
 function init_session() {
-    return session({ secret: process.env.COOKIE_PASSWORD })
+    return session({ keys: process.env.COOKIE_PASSWORD })
 };
 
 function set_is_logged() {
