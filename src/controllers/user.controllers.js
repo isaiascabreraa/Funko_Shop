@@ -16,7 +16,7 @@ const products = async (req, res) => {
 }
 
 const add_products = async (req, res) => {
-    res.render('./pages/add_product.ejs');
+    res.render('./pages/add.ejs');
 }
 
 const add_products_submit = async (req, res) => {

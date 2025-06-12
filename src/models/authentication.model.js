@@ -62,11 +62,11 @@ const register_user = async (data) => {
 
         const result = await conn.query(`
             INSERT INTO users (first_name, last_name, age, email, password_hash)
-            VALUES ($1, $2, $3, $4)
+            VALUES ($1, $2, $3, $4, $5)
             RETURNING id;
         `, [data.firstname, data.lastname, data.age, data.email, hashed_password]);
 
-        return { status: 'OK', id: result.rows[0].id };
+        return { status: 'OK', user_id: result.rows[0].id };
 
     } catch (error) {
         console.error('Error en register:', error);
