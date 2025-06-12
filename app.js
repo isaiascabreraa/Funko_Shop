@@ -13,8 +13,8 @@ const auth_routes = require('./src/routes/auth.routes');
 const user_routes = require('./src/routes/user.routes');
 
 //Information
-const IP = '0.0.0.0'
-const PORT = 14880
+const IP = process.env.IP || '0.0.0.0'
+const PORT = process.env.PORT
 
 //Template Engines
 app.set('view engine', 'ejs');

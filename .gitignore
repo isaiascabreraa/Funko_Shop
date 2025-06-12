@@ -1,2 +1,6 @@
 node_modules
+database
+docker-compose
+Dockerfile
+.dockerignore
 .env
