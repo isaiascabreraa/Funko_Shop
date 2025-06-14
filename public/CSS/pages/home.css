@@ -98,6 +98,36 @@
     width: 100%;
 }
 
+
+/* REVISAR ESTO*/
+.image_hover_container {
+  position: relative;
+}
+.image_hover_container img {
+  display: block;
+  width: 100%;
+  transition: opacity 0.3s ease;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.primary_image {
+  z-index: 1;
+  opacity: 1;
+}
+.secondary_image {
+  z-index: 2;
+  opacity: 0;
+  pointer-events: none;
+}
+.image_hover_container:hover .primary_image {
+  opacity: 0;
+}
+.image_hover_container:hover .secondary_image {
+  opacity: 1;
+}
+/* HASTA ACA */
+
 .product_description{
     display: flex;
     flex-direction: column;

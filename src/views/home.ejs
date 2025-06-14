@@ -38,9 +38,12 @@
           <div class="home_items">
             <% featured_characters.forEach((character, index) => { %>
               <div class="product_item <%= index % 2 === 1 ? 'reverse' : '' %>">
-                <figure>
-                  <img src="<%= character.primary_image %>" alt="<%= character.name %>">
+                
+                <figure class="image_hover_container">
+                  <img src="<%= character.primary_image %>" alt="<%= character.name %>" class="primary_image">
+                  <img src="<%= character.secondary_image %>" alt="<%= character.name %> - alternate" class="secondary_image">
                 </figure>
+
                 <div class="product_description">
                   <p class="brand_description"><%= character.brand_name %></p>
                   <h2><%= character.name %></h2>
