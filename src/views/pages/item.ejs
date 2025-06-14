@@ -5,11 +5,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="../../../Multimedia/Branding/isotype.svg">
+    <link rel="icon" href="/Multimedia/Branding/isotype.svg">
     <title>Funko Shop</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-    <link rel="stylesheet" href="../../CSS/index.css">
-    <link rel="stylesheet" href="../../CSS/pages/item.css">
+    <link rel="stylesheet" href="/CSS/index.css">
+    <link rel="stylesheet" href="/CSS/pages/item.css">
+    <link rel="stylesheet" href="/CSS/partials/carousel.css">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 </head>
@@ -44,37 +45,17 @@
             </div>
         </section>
         
-        <% if (brand_characters && brand_characters.length > 0) { %>
-        <section class="carousel">
-            <h3>Productos destacados</h3>
-
-            <div class="carousel_wrapper swiper">
-                <div class="swiper-button-prev carousel_button left"></div>
-                <div class="swiper-button-next carousel_button right"></div>
-                <div class="carousel_items swiper-wrapper">
-                    <% brand_characters.forEach(character => { %>
-                        <div class="swiper-slide">
-                            <a href="/shop/item/<%= character.id %>">
-                                <figure>
-                                    <img src="<%= character.primary_image %>" alt="<%= character.name %>">
-                                </figure>
-                                <div class="carousel_description">
-                                    <p><%= character.brand_name %></p>
-                                    <h2><%= character.name %></h2>
-                                    <p><%= character.price %></p>
-                                    <span><%= character.payments %></span>
-                                </div>
-                            </a>
-                        </div>
-                    <% }); %>
+        <% if (carousel_products && carousel_products.length > 0) { %>
+            <section class="carousel_conteiner">
+                <h2 class="carousel_title">Productos relacionados</h2>
+                <div class="carousel">
+                    <%- include('../partials/carousel')%>
                 </div>
-                <div class="swiper-pagination"></div>
-            </div>
-        </section>
+            </section>
         <% } %>
 
-        <script type="module" src="/Javascript/carousel.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script type="module" src="/Javascript/widgets/carousel.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
     </main>
     <%- include('../partials/footer')%>
@@ -82,12 +63,3 @@
 </body>
 
 </html>
-
-
-<script>
-    function scrollCarousel(direction) {
-        const carousel = document.querySelector('.carousel_items');
-        const itemWidth = carousel.querySelector('div').offsetWidth + 50;
-        carousel.scrollLeft += direction * itemWidth;
-    }
-</script>

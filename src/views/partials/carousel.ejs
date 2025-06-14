@@ -1,0 +1,25 @@
+
+<div class="carousel_wrapper swiper">
+    
+    <div class="swiper-button-prev carousel_button left"></div>
+    <div class="swiper-button-next carousel_button right"></div>
+
+    <div class="carousel_items swiper-wrapper">
+        <% carousel_products.forEach(character => { %>
+            <div class="swiper-slide">
+                <a href="/shop/item/<%= character.id %>">
+                    <figure>
+                        <img src="<%= character.primary_image %>" alt="<%= character.name %>">
+                    </figure>
+                    <div class="carousel_description">
+                        <p><%= character.brand_name %></p>
+                        <h2><%= character.name %></h2>
+                        <p><%= character.price %></p>
+                        <span><%= character.payments %></span>
+                    </div>
+                </a>
+            </div>
+        <% }); %>
+    </div>
+    <div class="swiper-pagination"></div>
+</div>

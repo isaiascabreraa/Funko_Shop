@@ -1,9 +1,11 @@
 
 :root {
   --color-fondo: rgb(44, 48, 58);
+  --color-contraste-suave: rgb(250, 250, 250);
   --color-contraste: rgb(240, 240, 240);
   --color-contraste-fuerte: rgb(230, 230, 230);
   --color-texto: rgb(245, 245, 245);
   --color-warning: rgb(199, 23, 23);
   --color-button: rgb(230, 70, 70);
+  --color-payments: rgb(45, 112, 212);
 }

@@ -29,7 +29,8 @@ async function fetchCharacters() {
 function filterAndRender() {
   const searchVal = document.getElementById('items_search').value.trim().toLowerCase();
   const sortVal = document.getElementById('items_sort').value;
-  const rangeVal = Number(document.getElementById('items_range').value);
+  const minPrice = Number(document.getElementById('min-price').value) || 0;
+  const maxPrice = Number(document.getElementById('max-price').value) || Infinity;
 
   let filtered = characters;
 
@@ -40,7 +41,10 @@ function filterAndRender() {
     );
   }
 
-  filtered = filtered.filter(c => Number(c.price) <= rangeVal);
+  filtered = filtered.filter(c => {
+    const price = Number(c.price);
+    return price >= minPrice && price <= maxPrice;
+  });
 
   if (sortVal === 'precio_asc') {
     filtered.sort((a, b) => parseFloat(a.price) - parseFloat(b.price));

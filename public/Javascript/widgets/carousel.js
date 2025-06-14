@@ -1,6 +1,6 @@
 
 const swiper = new Swiper('.carousel_wrapper.swiper', {
-  slidesPerView: 5,
+  slidesPerView: 8,
   spaceBetween: 20,
   loop: true,
   navigation: {
@@ -15,14 +15,19 @@ const swiper = new Swiper('.carousel_wrapper.swiper', {
     clickable: true,
   },
   breakpoints: {
+    1800: { slidesPerView: 5
+    },
     1024: {
-      slidesPerView: 4,
+      slidesPerView: 4
     },
     768: {
-      slidesPerView: 3,
+      slidesPerView: 3
     },
     480: {
-      slidesPerView: 2,
+      slidesPerView: 2
+    },
+    0: { 
+      slidesPerView: 1 
     }
   }
 });
