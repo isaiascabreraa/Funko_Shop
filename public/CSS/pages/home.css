@@ -89,44 +89,40 @@
     flex-direction: row-reverse;
     padding: 20px;
 }
-.product_item figure {
-  display: flex;
-  justify-content: center;
-  width: 60%;
+
+
+
+.image_container {
+    display: flex;
+    justify-content: center;
+    width: 60%;
+    position: relative;
 }
-.product_item img {
+.image_container img {
     width: 100%;
-}
-
-
-/* REVISAR ESTO*/
-.image_hover_container {
-  position: relative;
-}
-.image_hover_container img {
-  display: block;
-  width: 100%;
-  transition: opacity 0.3s ease;
-  position: absolute;
-  top: 0;
-  left: 0;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
 }
 .primary_image {
-  z-index: 1;
-  opacity: 1;
+    opacity: 1;
+    visibility: visible;
 }
 .secondary_image {
-  z-index: 2;
-  opacity: 0;
-  pointer-events: none;
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
 }
-.image_hover_container:hover .primary_image {
-  opacity: 0;
+.image_container:hover .primary_image {
+    opacity: 0;
+    visibility: hidden;
 }
-.image_hover_container:hover .secondary_image {
-  opacity: 1;
+.image_container:hover .secondary_image {
+    opacity: 1;
+    visibility: visible;
 }
-/* HASTA ACA */
+
+
 
 .product_description{
     display: flex;
