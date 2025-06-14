@@ -10,7 +10,9 @@ const home = async (req, res) => {
     const target = ['Baby Yoda Blue Ball', 'Charmander', 'Harry Potter'];
     const featured_characters = data.filter(char => target.includes(char.name));
 
-    res.render('home.ejs', { featured_characters });
+    const carousel_products = data.filter(char => !target.includes(char.name)).slice(0,8);
+
+    res.render('home.ejs', { featured_characters, carousel_products });
 }
 
 module.exports = {

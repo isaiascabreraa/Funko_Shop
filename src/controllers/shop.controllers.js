@@ -24,9 +24,9 @@ const item = async (req, res) => {
     const data_featured = await get_brand_characters(data[0].brand_name);
 
     const character = data[0];
-    const brand_characters = data_featured.filter(item => item.id !== character.id);
+    const carousel_products = data_featured.filter(item => item.id !== character.id);
 
-    res.render('./pages/item.ejs', { character, brand_characters });
+    res.render('./pages/item.ejs', { character, carousel_products });
 }
 
 module.exports = {

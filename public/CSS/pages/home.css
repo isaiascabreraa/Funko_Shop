@@ -63,17 +63,36 @@
 
 
 /*  MAIN PRODUCTS */
+.home_section {
+    display: flex;
+    justify-content: center;
+    background-color: var(--color-contraste-suave);
+}
+
 .home_items {
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin: 20px;
     gap: 25px;
+    background-color: rgb(255,255,255);
 }
 
 .product_item {
     display: flex;
     padding: 20px;
     align-items: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+.product_item.reverse {
+    display: flex;
+    flex-direction: row-reverse;
+    padding: 20px;
+}
+.product_item figure {
+  display: flex;
+  justify-content: center;
+  width: 60%;
 }
 .product_item img {
     width: 100%;
@@ -81,9 +100,9 @@
 
 .product_description{
     display: flex;
+    flex-direction: column;
     padding: 20px;
     min-width: 175px;
-    flex-direction: column;
     font-family: 'Raleway', sans-serif;
     gap: 25px;
 }
@@ -105,4 +124,27 @@
     text-decoration: none;
     color: var(--color-texto);
     background-color: var(--color-button);
+}
+
+.item_description {
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--color-fondo);
+}
+
+.carousel_conteiner {
+    background-color: var(--color-contraste-suave);
+}
+
+.carousel {
+    padding: 20px 80px 20px;
+    background-color: var(--color-contraste-fuerte);
+}
+
+.carousel_title {
+    display: inline-block;
+    margin: 20px 15px 20px;
+    font-family: "Inter", sans-serif;
+    font-weight: 600;
+    font-size: 2.8rem;
+    border-bottom: 3px solid var(--color-button);
 }

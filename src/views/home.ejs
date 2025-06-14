@@ -7,8 +7,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="../Multimedia/Branding/isotype.svg">
     <title>Funko Shop</title>
-    <link rel="stylesheet" href="../CSS/index.css">
-    <link rel="stylesheet" href="../CSS/pages/home.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="/CSS/index.css">
+    <link rel="stylesheet" href="/CSS/pages/home.css">
+    <link rel="stylesheet" href="/CSS/partials/carousel.css">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 </head>
@@ -34,15 +36,15 @@
 
         <section class="home_section">
           <div class="home_items">
-            <% featured_characters.forEach(character => { %>
-              <div class="product_item">
+            <% featured_characters.forEach((character, index) => { %>
+              <div class="product_item <%= index % 2 === 1 ? 'reverse' : '' %>">
                 <figure>
                   <img src="<%= character.primary_image %>" alt="<%= character.name %>">
                 </figure>
                 <div class="product_description">
-                  <p><%= character.brand_name %></p>
+                  <p class="brand_description"><%= character.brand_name %></p>
                   <h2><%= character.name %></h2>
-                  <p><%= character.description %></p>
+                  <p class="item_description"><%= character.description %></p>
                   <div>
                     <a href="/shop">VER COLECCIÓN</a>
                   </div>
@@ -51,6 +53,18 @@
             <% }) %>
           </div>
         </section>
+
+        <% if (carousel_products && carousel_products.length > 0) { %>
+          <section class="carousel_conteiner">
+            <h2 class="carousel_title">Ultimos ingresos</h2>
+            <div class="carousel">
+              <%- include('partials/carousel')%>
+            </div>
+          </section>
+        <% } %>
+
+        <script type="module" src="/Javascript/widgets/carousel.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
         
       </main>
     <%- include('./partials/footer')%>

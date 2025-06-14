@@ -71,83 +71,20 @@
 }
 
 
-/* CAROUSEL */
-.carousel {
-    
-    background-color: rgb(235, 235, 235);
+.carousel_conteiner {
+    background-color: var(--color-contraste-suave);
 }
-.carousel h3 {
-    display: flex;
-    padding-top: 2rem;
-    padding-left: 2rem;
+
+.carousel {
+    padding: 20px 80px 20px;
+    background-color: var(--color-contraste-fuerte);
+}
+
+.carousel_title {
+    display: inline-block;
+    margin: 20px 15px 20px;
     font-family: "Inter", sans-serif;
     font-weight: 600;
-    font-size: 2.5rem;
-}
-
-
-.carousel_wrapper {
-    display: flex;
-    margin: 0 5em 0;
-    justify-content: center;
-}
-
-
-.carousel_button {
-    margin: 0 20px 0;
-    height: 40px;
-    width: 200px;
-    font-size: 20px;
-    align-self: center;
-    opacity: 0.5;
-    cursor: pointer;
-    border: none;
-    color: white;
-    background-color: rgb(0,0,0)
-} 
-
-.carousel_items {
-    display: flex;
-    padding: 20px 0px;
-    margin: 20px;
-    gap: 50px;
-    overflow-x: hidden;
-    scroll-behavior: smooth;
-}
-.carousel_items a {
-    display: flex;
-    width: 30rem;
-    flex-direction: column;
-    color: inherit;
-    text-decoration: none;
-    background-color: rgb(255, 255, 255);
-}
-.carousel_items img {
-    width: 100%; 
-    height: auto;
-}
-
-
-.carousel_description{
-    display: flex;
-    padding: 10px;
-    flex-direction: column;
-    font-family: 'Inter', sans-serif;
-}
-.carousel_description h2{
-    font-size: 2rem;
-    font-weight: 700;
-}
-.carousel_description p{
-    font-size: 2rem;
-    font-weight: 400;
-}
-.carousel_description a{
-    font-size: 2rem;
-}
-.carousel_description span {
-    font-size: 1.5rem;
-    font-family: 'Inter', sans-serif;
-    font-weight: 500;
-    color: rgb(35, 100, 200);
+    font-size: 2.8rem;
+    border-bottom: 3px solid var(--color-button);
 }

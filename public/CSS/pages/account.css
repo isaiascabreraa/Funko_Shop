@@ -1,17 +1,10 @@
 
 @import url('../misc/palette.css');
 
-.account-container {
-    display: flex;
-    max-width: 1200px;
-    margin: 40px auto;
-    padding: 20px;
-    gap: 40px;
-}
 
 .account_paragraph {
     display: flex;
-    padding: 2rem;
+    padding: 20px;
     justify-content: center;
     font-family: 'Inter', sans-serif;
     font-size: 5rem;
@@ -19,7 +12,9 @@
 
 .account_content {
     display: flex;
+    margin-bottom: 20px;
     justify-content: center;
+    align-items: center;
 }
 
 .account_sidebar {

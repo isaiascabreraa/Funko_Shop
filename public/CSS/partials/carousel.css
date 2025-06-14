@@ -1,0 +1,67 @@
+
+/* CAROUSEL */
+.carousel_wrapper {
+    display: flex;
+}
+
+.carousel_button {
+    width: 25px;
+    height: 40px;
+    align-self: center;
+    opacity: 0.5;
+    cursor: pointer;
+    border: none;
+    color: var(--color-texto);
+    background-color: rgb(0,0,0)
+}
+.swiper-button-prev {
+    left: 0px;
+}
+.swiper-button-next {
+    right: 0px;
+}
+.swiper-button-prev::after, .swiper-button-next::after {
+  font-size: 20px;
+}
+
+.carousel_items {
+    display: flex;
+    margin-bottom: 40px;
+}
+.carousel_items a {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 400px;
+    text-decoration: none;
+    color: inherit;
+    background-color: rgb(255, 255, 255);
+}
+.carousel_items img {
+    width: 100%; 
+    height: auto;
+}
+
+.carousel_description{
+    display: flex;
+    padding: 10px;
+    flex-direction: column;
+    font-family: 'Inter', sans-serif;
+}
+.carousel_description h2{
+    font-size: 2rem;
+    font-weight: 700;
+}
+.carousel_description p{
+    font-size: 2rem;
+    font-weight: 400;
+}
+.carousel_description a{
+    font-size: 2rem;
+}
+.carousel_description span {
+    font-size: 1.5rem;
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    color: var(--color-payments)
+}
