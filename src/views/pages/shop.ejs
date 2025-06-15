@@ -9,6 +9,7 @@
   <title>Funko Shop</title>
   <link rel="stylesheet" href="/CSS/index.css">
   <link rel="stylesheet" href="/CSS/pages/shop.css">
+  <link rel="stylesheet" href="/CSS/partials/sidebar.css">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 </head>
@@ -18,57 +19,27 @@
   <main>
     
     <div class="shop_conteiner">
-
       <aside class="shop_sidebar">
-        <form action="/shop" method="GET" id="shop_filters">
+        <%- include('../partials/sidebar') %>
+      </aside> 
 
-          <div class="shop_search">
-            <label for="search">BUSCAR:</label>
-            <input type="text" id="items_search" name="search" value="<%= search %>">
-          </div>
-          
-          <div class="shop_order">
-            <label for="sort">ORDENAR POR:</label>
-            <select id="items_sort" name="sort">
-              <option value=""></option>
-              <option value="precio_asc" <%= sort==='precio_asc'? 'selected' : '' %>>Menor precio</option>
-              <option value="precio_desc" <%= sort==='precio_desc'? 'selected' : '' %>>Mayor precio</option>
-            </select>
-          </div>
-          
-          <div class="shop_price">
-            <div class="price_inputs">
-              <span>MIN</span>
-              <input type="number" id="min-price" name="min_price" min="0">
-              <span>-</span>
-              <span>MAX</span>
-              <input type="number" id="max-price" name="max_price" min="0">
-            </div>
-          </div>
-          
-          <div class="shop_submit">
-            <button type="submit" class="submit_btn">Aplicar Filtros</button>
-          </div>
-        </form>
-      </aside>
-    
       <div class="shop_items" id="products">
-
         <% if (characters.length === 0) { %>
           <p>No se encontraron productos.</p>
         <% } else { %>
 
-          <% characters.forEach(c => { %>
-            <a class="product_item" href="/shop/item/<%= c.id %>">
-              <figure>
-                <img src="<%= c.primary_image %>" alt="<%= c.name %>">
+          <% characters.forEach(character => { %>
+            <a class="product_item" href="/shop/item/<%= character.id %>">
+              <figure class="image_container">
+                  <img src="<%= character.primary_image %>" alt="<%= character.name %>" class="primary_image">
+                  <img src="<%= character.secondary_image %>" alt="<%= character.name %> - alternate" class="secondary_image">
               </figure>
               <div class="product_description">
-                <span><%= c.brand_name %></span>
-                <h2><%= c.name %></h2>
-                <p><%= c.price %></p>
+                <span><%= character.brand_name %></span>
+                <h2><%= character.name %></h2>
+                <p><%= character.price %></p>
                 <div class="payment_methods">
-                  <span><%= c.payments %></span>
+                  <span><%= character.payments %></span>
                 </div>
               </div>
             </a>
@@ -77,8 +48,13 @@
       </div>
     </div>
 
+    <button id="filterToggle" class="filter_toggle">☰</button>
+    <div id="mobileSidebar" class="mobile_sidebar">
+      <button id="closeSidebar" class="close_sidebar">✕</button>
+      <%- include('../partials/sidebar') %>
+    </div>
+
     <script src="../Javascript/shop.js"></script>
-    <script src="../Javascript/widgets/tooltip.js"></script>
       
   </main>
   <%- include('../partials/footer')%>

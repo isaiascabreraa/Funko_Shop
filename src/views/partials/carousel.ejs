@@ -8,8 +8,9 @@
         <% carousel_products.forEach(character => { %>
             <div class="swiper-slide">
                 <a href="/shop/item/<%= character.id %>">
-                    <figure>
-                        <img src="<%= character.primary_image %>" alt="<%= character.name %>">
+                    <figure class="carousel_images">
+                        <img src="<%= character.primary_image %>" alt="<%= character.name %>" class="carousel_primary_image">
+                        <img src="<%= character.secondary_image %>" alt="<%= character.name %> - alternate" class="carousel_secondary_image">
                     </figure>
                     <div class="carousel_description">
                         <p><%= character.brand_name %></p>
