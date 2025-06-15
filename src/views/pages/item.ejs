@@ -20,10 +20,10 @@
     <%- include('../partials/header')%>
     <main>
         <section class="item">
-            <div>
-                <img src="<%= character.primary_image %>" alt="<%= character.name %>">
-            </div>
-
+            <figure class="image_container">
+                  <img src="<%= character.primary_image %>" alt="<%= character.name %>" class="primary_image">
+                  <img src="<%= character.secondary_image %>" alt="<%= character.name %> - alternate" class="secondary_image">
+            </figure>
             <div class="item_description">
                 <div class="item_details">
                     <span><%= character.brand_name %></span>

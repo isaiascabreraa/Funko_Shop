@@ -7,8 +7,35 @@
     align-items: center;
     justify-content: center;
 }
-.item img {
+
+
+.image_container {
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+.image_container img {
     width: 100%;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+.primary_image {
+    opacity: 1;
+    visibility: visible;
+}
+.secondary_image {
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.image_container:hover .primary_image {
+    opacity: 0;
+    visibility: hidden;
+}
+.image_container:hover .secondary_image {
+    opacity: 1;
+    visibility: visible;
 }
 
 

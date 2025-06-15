@@ -1,0 +1,30 @@
+
+<form action="/shop" method="GET" id="shop_filters">
+  <div class="shop_search">
+    <label for="search">BUSCAR:</label>
+    <input type="text" id="items_search" name="search" value="<%= search %>">
+  </div>
+  
+  <div class="shop_order">
+    <label for="sort">ORDENAR POR:</label>
+    <select id="items_sort" name="sort">
+      <option value=""></option>
+      <option value="precio_asc" <%= sort==='precio_asc'? 'selected' : '' %>>Menor precio</option>
+      <option value="precio_desc" <%= sort==='precio_desc'? 'selected' : '' %>>Mayor precio</option>
+    </select>
+  </div>
+  
+  <div class="shop_price">
+    <div class="price_inputs">
+      <span>MIN</span>
+      <input type="number" id="min-price" name="min_price" min="0">
+      <span>-</span>
+      <span>MAX</span>
+      <input type="number" id="max-price" name="max_price" min="0">
+    </div>
+  </div>
+  
+  <div class="shop_submit">
+    <button type="submit" class="submit_btn">Aplicar Filtros</button>
+  </div>
+</form>

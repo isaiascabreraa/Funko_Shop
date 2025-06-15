@@ -1,19 +1,46 @@
-
 let characters = [];
 let products;
 
-//Initialize
+// Initialize
 document.addEventListener('DOMContentLoaded', () => {
   products = document.getElementById('products');
   const form = document.getElementById('shop_filters');
 
   fetchCharacters();
-  form.addEventListener('submit', event => {
-    event.preventDefault();
-    filterAndRender();
-  });
+
+  if (form) {
+    form.addEventListener('submit', event => {
+      event.preventDefault();
+      filterAndRender();
+    });
+  }
+
+  // Sidebar móvil
+  const toggleBtn = document.getElementById('filterToggle');
+  const sidebar = document.getElementById('mobileSidebar');
+  const closeBtn = document.getElementById('closeSidebar');
+
+  if (toggleBtn && sidebar && closeBtn) {
+    toggleBtn.addEventListener('click', () => {
+      sidebar.classList.add('open');
+    });
+
+    closeBtn.addEventListener('click', () => {
+      sidebar.classList.remove('open');
+    });
+
+    // Cerrar sidebar al hacer clic fuera de él
+    document.addEventListener('click', (e) => {
+      if (sidebar.classList.contains('open') &&
+          !sidebar.contains(e.target) &&
+          !toggleBtn.contains(e.target)) {
+        sidebar.classList.remove('open');
+      }
+    });
+  }
 });
 
+// Fetch data
 async function fetchCharacters() {
   try {
     const res = await fetch('/data/characters');
@@ -25,7 +52,7 @@ async function fetchCharacters() {
   }
 }
 
-//Filter
+// Filter logic
 function filterAndRender() {
   const searchVal = document.getElementById('items_search').value.trim().toLowerCase();
   const sortVal = document.getElementById('items_sort').value;
@@ -55,7 +82,7 @@ function filterAndRender() {
   renderProducts(filtered);
 }
 
-//Render
+// Render products
 function renderProducts(list) {
   products.innerHTML = '';
   if (list.length === 0) {
@@ -69,10 +96,20 @@ function renderProducts(list) {
     a.href = `/shop/item/${c.id}`;
 
     const figure = document.createElement('figure');
-    const img = document.createElement('img');
-    img.src = c.primary_image;
-    img.alt = c.name;
-    figure.appendChild(img);
+    figure.className = 'image_container';
+
+    const primaryImg = document.createElement('img');
+    primaryImg.src = c.primary_image;
+    primaryImg.alt = c.name;
+    primaryImg.className = 'primary_image';
+
+    const secondaryImg = document.createElement('img');
+    secondaryImg.src = c.secondary_image;
+    secondaryImg.alt = `${c.name} - alternate`;
+    secondaryImg.className = 'secondary_image';
+
+    figure.appendChild(primaryImg);
+    figure.appendChild(secondaryImg);
     a.appendChild(figure);
 
     const desc = document.createElement('div');
