@@ -22,6 +22,7 @@
   "type": "commonjs",
   "dependencies": {
     "bcrypt": "^5.1.1",
+    "brace-expansion": "^2.0.2",
     "cookie-session": "^2.1.0",
     "dotenv": "^16.5.0",
     "ejs": "^3.1.10",
