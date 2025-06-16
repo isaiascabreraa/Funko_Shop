@@ -7,7 +7,12 @@
     align-items: center;
     justify-content: center;
 }
-
+@media (max-width: 600px) {
+    .item {
+        display: flex;
+        flex-direction: column;
+    }
+}
 
 .image_container {
     display: flex;
@@ -42,6 +47,7 @@
 .item_description {
     display: flex;
     flex-direction: column;
+    padding: 20px;
     gap: 25px;
 }
 
