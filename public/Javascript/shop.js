@@ -15,29 +15,42 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Sidebar móvil
-  const toggleBtn = document.getElementById('filterToggle');
-  const sidebar = document.getElementById('mobileSidebar');
-  const closeBtn = document.getElementById('closeSidebar');
+// Sidebar móvil
+const toggleBtn = document.getElementById('filterToggle');
+const sidebar = document.getElementById('mobileSidebar');
 
-  if (toggleBtn && sidebar && closeBtn) {
-    toggleBtn.addEventListener('click', () => {
-      sidebar.classList.add('open');
-    });
+if (toggleBtn && sidebar) {
+  toggleBtn.addEventListener('click', () => {
+    const isOpen = sidebar.classList.contains('open');
 
-    closeBtn.addEventListener('click', () => {
+    if (isOpen) {
       sidebar.classList.remove('open');
-    });
+      setTimeout(() => {
+        sidebar.style.display = 'none';
+      }, 300); // Espera a que termine la transición
+    } else {
+      sidebar.style.display = 'flex';
+      setTimeout(() => {
+        sidebar.classList.add('open');
+      }, 10); // Pequeño delay para que el display se aplique antes de la transición
+    }
+  });
 
-    // Cerrar sidebar al hacer clic fuera de él
-    document.addEventListener('click', (e) => {
-      if (sidebar.classList.contains('open') &&
-          !sidebar.contains(e.target) &&
-          !toggleBtn.contains(e.target)) {
-        sidebar.classList.remove('open');
-      }
-    });
-  }
+  // Cerrar al hacer clic fuera
+  document.addEventListener('click', (e) => {
+    if (
+      sidebar.classList.contains('open') &&
+      !sidebar.contains(e.target) &&
+      !toggleBtn.contains(e.target)
+    ) {
+      sidebar.classList.remove('open');
+      setTimeout(() => {
+        sidebar.style.display = 'none';
+      }, 300);
+    }
+  });
+}
+
 });
 
 // Fetch data

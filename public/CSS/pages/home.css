@@ -89,13 +89,17 @@
     flex-direction: row-reverse;
     padding: 20px;
 }
-
+@media (max-width: 600px) {
+    .product_item , .product_item.reverse{
+        display: flex;
+        flex-direction: column;
+    }
+}
 
 /* Images */
 .image_container {
     display: flex;
     justify-content: center;
-    width: 60%;
     position: relative;
 }
 .image_container img {
