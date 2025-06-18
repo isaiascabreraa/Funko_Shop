@@ -30,6 +30,7 @@
     flex-direction: column;
     padding: 10px;
     font-family: 'Inter', sans-serif;
+    font-size: 2rem;
     gap: 5px;
 }
 .product_description span{
@@ -133,4 +134,25 @@
 .image_container:hover .secondary_image {
     opacity: 1;
     visibility: visible;
+}
+
+
+@media (max-width: 600px) {
+  .product_description {
+        padding: 6px;
+        gap: 5px;
+  }
+
+  .product_description span,
+  .product_description h2,
+  .product_description p,
+  .product_description a,
+  .payment_methods {
+        font-size: 1.5rem;
+  }
+
+  .image_container img {
+    width: 150px;
+    height: auto;
+  }
 }
