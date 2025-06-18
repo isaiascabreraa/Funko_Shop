@@ -139,8 +139,8 @@
 
 @media (max-width: 600px) {
   .product_description {
-        padding: 6px;
-        gap: 5px;
+        padding: 8px;
+        gap: 4px;
   }
 
   .product_description span,
@@ -148,7 +148,7 @@
   .product_description p,
   .product_description a,
   .payment_methods {
-        font-size: 1.5rem;
+        font-size: 1.2rem;
   }
 
   .image_container img {
