@@ -48,16 +48,36 @@
       </div>
     </div>
 
+    <nav class="pagination">
+      <% if (page > 1) { %>
+        <a href="?page=<%= page - 1 %>&search=<%= search %>&sort=<%= sort %>&min_price=<%= min_price %>&max_price=<%= max_price %>" class="prev-button"> Atras </a>
+      <% } %>
+
+      <% 
+        const maxPagesToShow = 5;
+        const lastPageToShow = Math.min(page + maxPagesToShow - 1, total_pages);
+        for (let i = page; i <= lastPageToShow; i++) { 
+      %>
+        <a href="?page=<%= i %>&search=<%= search %>&sort=<%= sort %>&min_price=<%= min_price %>&max_price=<%= max_price %>"
+          class="page-number <%= i === page ? 'active' : '' %>"> <%= i %>
+        </a>
+      <% } %>
+
+      <% if (page < total_pages) { %>
+        <a href="?page=<%= page + 1 %>&search=<%= search %>&sort=<%= sort %>&min_price=<%= min_price %>&max_price=<%= max_price %>" class="next-button"> Siguiente </a>
+      <% } %>
+    </nav>
+
     <button id="filterToggle" class="filter_toggle">☰</button>
     <div id="mobileSidebar" class="mobile_sidebar">
       <%- include('../partials/sidebar') %>
     </div>
 
-    <script src="../Javascript/shop.js"></script>
+    <script src="../Javascript/sidebar.js"></script>
       
   </main>
   <%- include('../partials/footer')%>
     
   </body>
   
-  </html>
+</html>

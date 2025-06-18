@@ -1,6 +1,96 @@
 
 const { conn } = require('../config/connections');
 
+const get_all_characters = async () => {
+    const result = await conn.query(`
+        SELECT p.id, p.name, p.price, p.payments, p.description, p.stock, c1.primary_image, c2.secondary_image, b.name AS brand_name
+        FROM products p
+        LEFT JOIN content c1 ON p.id = c1.product_id
+        LEFT JOIN content c2 ON p.id = c2.product_id
+        LEFT JOIN brands b ON p.brand_id = b.id;
+    `);
+    return result.rows;
+}
+
+const get_characters = async ({ search, sort, min_price, max_price, limit, offset }) => {
+    let query = `
+        SELECT p.id, p.name, p.price, p.payments, c.primary_image, c.secondary_image, b.name AS brand_name
+        FROM products p
+        LEFT JOIN content c ON p.id = c.product_id
+        LEFT JOIN brands b ON p.brand_id = b.id
+    `;
+
+    const conditions = [];
+    const params = [];
+    let paramIndex = 1;
+
+    if (search) {
+        conditions.push(`(p.name ILIKE $${paramIndex} OR b.name ILIKE $${paramIndex})`);
+        params.push(`%${search}%`);
+        paramIndex++;
+    }
+    if (min_price !== null) {
+        conditions.push(`p.price >= $${paramIndex}`);
+        params.push(min_price);
+        paramIndex++;
+    }
+    if (max_price !== null) {
+        conditions.push(`p.price <= $${paramIndex}`);
+        params.push(max_price);
+        paramIndex++;
+    }
+
+    if (conditions.length > 0) {
+        query += ' WHERE ' + conditions.join(' AND ');
+    }
+
+    if (sort === 'precio_asc') {
+        query += ' ORDER BY p.price ASC';
+        
+    } else if (sort === 'precio_desc') {
+        query += ' ORDER BY p.price DESC';
+
+    } else {
+        query += ' ORDER BY p.id ASC';
+    }
+
+    query += ` LIMIT $${paramIndex} OFFSET $${paramIndex + 1}`;
+    params.push(limit, offset);
+
+    const result = await conn.query(query, params);
+    return result.rows;
+};
+
+const count_characters = async ({ search, min_price, max_price }) => {
+    let query = `SELECT COUNT(*) AS total FROM products p LEFT JOIN brands b ON p.brand_id = b.id`;
+    const conditions = [];
+    const params = [];
+    let paramIndex = 1;
+
+    if (search) {
+        conditions.push(`(p.name ILIKE $${paramIndex} OR b.name ILIKE $${paramIndex})`);
+        params.push(`%${search}%`);
+        paramIndex++;
+    }
+    if (min_price !== null) {
+        conditions.push(`p.price >= $${paramIndex}`);
+        params.push(min_price);
+        paramIndex++;
+    }
+    if (max_price !== null) {
+        conditions.push(`p.price <= $${paramIndex}`);
+        params.push(max_price);
+        paramIndex++;
+    }
+
+    if (conditions.length > 0) {
+        query += ' WHERE ' + conditions.join(' AND ');
+    }
+
+    const result = await conn.query(query, params);
+    return Number(result.rows[0].total);
+};
+
 const get_character_by_id = async (product_id) => {
     const result = await conn.query(`
         SELECT p.id, p.name, p.price, p.payments, p.description, p.stock, c1.primary_image, c2.secondary_image, b.name AS brand_name
@@ -10,17 +100,6 @@ const get_character_by_id = async (product_id) => {
         LEFT JOIN brands b ON p.brand_id = b.id
         WHERE p.id = $1;
     `, [product_id]);
-    return result.rows;
-}
-
-const get_all_characters = async () => {
-    const result = await conn.query(`
-        SELECT p.id, p.name, p.price, p.payments, p.description, p.stock, c1.primary_image, c2.secondary_image, b.name AS brand_name
-        FROM products p
-        LEFT JOIN content c1 ON p.id = c1.product_id
-        LEFT JOIN content c2 ON p.id = c2.product_id
-        LEFT JOIN brands b ON p.brand_id = b.id;
-    `);
     return result.rows;
 }
 
@@ -90,5 +169,7 @@ module.exports = {
     get_characters_by_user,
     get_all_characters,
     get_brand_characters,
+    get_characters,
+    count_characters,
     add_character
 };
