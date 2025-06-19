@@ -12,10 +12,6 @@ const data_routes = require('./src/routes/data.routes');
 const auth_routes = require('./src/routes/auth.routes');
 const user_routes = require('./src/routes/user.routes');
 
-//Information
-const IP = process.env.IP || '0.0.0.0'
-const PORT = process.env.PORT
-
 //Template Engines
 app.set('view engine', 'ejs');
 app.set('views', path.resolve(__dirname, './src/views'));
@@ -31,4 +27,5 @@ app.use('/shop', shop_routes);
 app.use('/data', data_routes);
 app.use('/', main_routes);
 
-app.listen(PORT, ()=> console.log(`Servidor corriendo en http://${IP}:${PORT}`));
+
+module.exports = app; 

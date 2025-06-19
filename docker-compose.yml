@@ -1,4 +1,6 @@
+
 services:
+
   funko_postgre:
     image: postgres
     container_name: funko-postgres
@@ -13,6 +15,24 @@ services:
       -  data:/var/lib/postgresql/data
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U ${DB_USER} -d ${DB_DATABASE}"]
+      interval: 5s
+      timeout: 3s
+      retries: 5
+  
+  funko_postgre_test:
+    image: postgres
+    container_name: funko-postgres-test
+    ports:
+      - ${DB_PORT_TEST}:5432
+    environment:
+      POSTGRES_USER: ${DB_USER_TEST}
+      POSTGRES_PASSWORD: ${DB_PASSWORD_TEST}
+      POSTGRES_DB: ${DB_DATABASE_TEST}
+    volumes:
+      - ./database_test:/docker-entrypoint-initdb.d
+      - data_test:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${DB_USER_TEST} -d ${DB_DATABASE_TEST}"]
       interval: 5s
       timeout: 3s
       retries: 5
@@ -37,4 +57,5 @@ services:
 
 volumes:
   data: {}
+  data_test: {}
   node_modules: {}
