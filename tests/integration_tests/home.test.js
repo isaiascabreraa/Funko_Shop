@@ -4,10 +4,10 @@ const { app, server } = require('../../app');
 const { conn } = require('../../src/config/connections');
 const api = request(app)
 
-describe('GET /shop', () => {
+describe('GET /', () => {
   
   test('Debería responder con status 200 y renderizar la vista', async () => {
-    await api.get('/shop').expect(200)
+    await api.get('/').expect(200)
   });
 
 });

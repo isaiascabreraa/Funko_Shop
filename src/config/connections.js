@@ -1,8 +1,8 @@
 
 const { Pool } = require('pg');
 
-const { DATABASE_URL , DATABASE_URL_TEST, NODE_ENV } = process.env;
-const connection = NODE_ENV === "test" ? DATABASE_URL_TEST : DATABASE_URL;
+const { DATABASE_URL } = process.env;
+const connection = DATABASE_URL;
 
 if (!connection) {
     console.error('Recuerda configurar el archivo .env para test y dev')
