@@ -1,24 +1,24 @@
 const bcrypt = require('bcrypt')
 const { conn } = require('../config/connections')
 
-const check_email = async (email) => {
+const checkEmail = async (email) => {
   try {
-    const validated_user = await conn.query('SELECT * FROM users WHERE email = $1;', [email])
-    if (validated_user.rows.length === 0) {
+    const validatedUser = await conn.query('SELECT * FROM users WHERE email = $1;', [email])
+    if (validatedUser.rows.length === 0) {
       return { status: 'NOT_FOUND' }
     }
-    const current_user = validated_user.rows[0]
-    return { status: 'OK', current_user }
+    const currentUser = validatedUser.rows[0]
+    return { status: 'OK', currentUser }
   } catch (error) {
-    console.error('Error en chequeo de correo electronico:', error)
+    console.error('Error en chequeo de correo electrónico:', error)
     throw error
   }
 }
 
-const check_password = async (password, password_hash) => {
+const checkPassword = async (password, passwordHash) => {
   try {
-    const validated_password = await bcrypt.compare(password, password_hash)
-    if (!validated_password) {
+    const validatedPassword = await bcrypt.compare(password, passwordHash)
+    if (!validatedPassword) {
       return { status: 'INVALID_PASSWORD' }
     }
     return { status: 'OK' }
@@ -28,41 +28,44 @@ const check_password = async (password, password_hash) => {
   }
 }
 
-const authenticate_user = async (email, password) => {
+const authenticateUser = async (email, password) => {
   try {
-    const user = await check_email(email)
+    const user = await checkEmail(email)
     if (user.status !== 'OK') {
       return { status: 'NOT_FOUND' }
     }
 
-    const password_authenticated = await check_password(password, user.current_user.password_hash)
-    if (password_authenticated.status !== 'OK') {
+    const passwordAuthenticated = await checkPassword(password, user.currentUser.password_hash)
+    if (passwordAuthenticated.status !== 'OK') {
       return { status: 'INVALID_PASSWORD' }
     }
 
-    return { status: 'OK', user: user.current_user }
+    return { status: 'OK', user: user.currentUser }
   } catch (error) {
     console.error('Error en autenticación:', error)
     throw error
   }
 }
 
-const register_user = async (data) => {
+const registerUser = async (data) => {
   try {
-    const user_alredy_exist = await check_email(data.email)
-    if (user_alredy_exist.status === 'OK') {
-      return { status: 'USER ALREADY_EXISTS' }
+    const userAlreadyExist = await checkEmail(data.email)
+    if (userAlreadyExist.status === 'OK') {
+      return { status: 'USER_ALREADY_EXISTS' }
     }
 
-    const hashed_password = await bcrypt.hash(data.password, 12)
+    const hashedPassword = await bcrypt.hash(data.password, 12)
 
-    const result = await conn.query(`
-            INSERT INTO users (first_name, last_name, age, email, password_hash)
-            VALUES ($1, $2, $3, $4, $5)
-            RETURNING id;
-        `, [data.firstname, data.lastname, data.age, data.email, hashed_password])
+    const result = await conn.query(
+      `
+      INSERT INTO users (first_name, last_name, age, email, password_hash)
+      VALUES ($1, $2, $3, $4, $5)
+      RETURNING id;
+      `,
+      [data.firstname, data.lastname, data.age, data.email, hashedPassword]
+    )
 
-    return { status: 'OK', user_id: result.rows[0].id }
+    return { status: 'OK', userId: result.rows[0].id }
   } catch (error) {
     console.error('Error en register:', error)
     return { status: 'ERROR', error }
@@ -70,6 +73,6 @@ const register_user = async (data) => {
 }
 
 module.exports = {
-  authenticate_user,
-  register_user
+  authenticateUser,
+  registerUser
 }

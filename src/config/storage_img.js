@@ -4,7 +4,6 @@ const path = require('path')
 const multimediaPath = path.resolve(__dirname, '../../public/Multimedia')
 
 const storage = multer.diskStorage({
-
   destination: function (req, file, cb) {
     if (!req.fileIndex) req.fileIndex = 0
 
@@ -20,10 +19,9 @@ const storage = multer.diskStorage({
   },
 
   filename: function (req, file, cb) {
-    const img_name = file.originalname.replace(/\s+/g, '_').toLowerCase()
-    cb(null, img_name)
+    const imgName = file.originalname.replace(/\s+/g, '_').toLowerCase()
+    cb(null, imgName)
   }
-
 })
 
 const upload = multer({ storage })

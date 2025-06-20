@@ -1,10 +1,10 @@
 const session = require('cookie-session')
 
-function init_session () {
+function initSession () {
   return session({ keys: [process.env.COOKIE_PASSWORD] })
-};
+}
 
-function set_is_logged () {
+function setIsLogged () {
   return (req, res, next) => {
     res.locals.is_logged = req.session.is_logged || false
     next()
@@ -12,6 +12,6 @@ function set_is_logged () {
 }
 
 module.exports = {
-  init_session,
-  set_is_logged
+  initSession,
+  setIsLogged
 }

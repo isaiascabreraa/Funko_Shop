@@ -1,34 +1,34 @@
 const account = async (req, res) => {
-  const { get_account_data } = require('../models/account.model')
-  const result = await get_account_data(req.session.user_id)
+  const { getAccountData } = require('../models/account.model')
+  const result = await getAccountData(req.session.userId)
 
   if (result.status !== 'OK') {
     return res.redirect('/auth/login')
   }
-  res.render('./pages/account.ejs', { user: result.user_data })
+  res.render('./pages/account.ejs', { user: result.userData })
 }
 
 const products = async (req, res) => {
-  const { get_characters_by_user } = require('../models/characters.model')
-  const data = await get_characters_by_user(req.session.user_id)
+  const { getCharactersByUser } = require('../models/characters.model')
+  const data = await getCharactersByUser(req.session.userId)
   res.render('./pages/products.ejs', { products: data })
 }
 
-const add_products = async (req, res) => {
+const addProducts = async (req, res) => {
   res.render('./pages/add.ejs')
 }
 
-const add_products_submit = async (req, res) => {
-  const { add_character } = require('../models/characters.model')
+const addProductsSubmit = async (req, res) => {
+  const { addCharacter } = require('../models/characters.model')
   const data = req.body
   const file = req.files
-  const user_id = req.session.user_id
+  const userId = req.session.userId
 
   // Hago los chequeos necesarios.
-  // Si todo esta ok entonces...
+  // Si todo está ok entonces...
 
   try {
-    await add_character(data, file, user_id)
+    await addCharacter(data, file, userId)
     return res.redirect('/shop')
   } catch (error) {
     console.error(error)
@@ -39,6 +39,6 @@ const add_products_submit = async (req, res) => {
 module.exports = {
   account,
   products,
-  add_products,
-  add_products_submit
+  addProducts,
+  addProductsSubmit
 }

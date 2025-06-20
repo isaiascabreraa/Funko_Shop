@@ -1,7 +1,7 @@
 const express = require('express')
-const data_controllers = require('../controllers/data.controllers')
+const dataControllers = require('../controllers/data.controllers')
 const router = express.Router()
 
-router.get('/characters', data_controllers.getDataCharacters)
+router.get('/characters', dataControllers.getDataCharacters)
 
 module.exports = router
