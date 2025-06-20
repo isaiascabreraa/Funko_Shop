@@ -1,22 +1,20 @@
-
-const swiper = new Swiper('.carousel_wrapper.swiper', {
+new Swiper('.carousel_wrapper.swiper', {
   slidesPerView: 8,
   spaceBetween: 20,
   loop: true,
   navigation: {
     nextEl: '.carousel_button.right',
-    prevEl: '.carousel_button.left',
+    prevEl: '.carousel_button.left'
   },
   autoplay: {
-    delay: 3500,
+    delay: 3500
   },
   pagination: {
     el: '.swiper-pagination',
-    clickable: true,
+    clickable: true
   },
   breakpoints: {
-    1800: { slidesPerView: 5
-    },
+    1800: { slidesPerView: 5 },
     1024: {
       slidesPerView: 4
     },
@@ -26,8 +24,8 @@ const swiper = new Swiper('.carousel_wrapper.swiper', {
     480: {
       slidesPerView: 2
     },
-    0: { 
-      slidesPerView: 1 
+    0: {
+      slidesPerView: 1
     }
   }
-});
+})

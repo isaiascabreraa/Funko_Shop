@@ -7,7 +7,9 @@
     "start": "cross-env NODE_ENV=production node app.js",
     "dev": "cross-env NODE_ENV=development nodemon --watch . --ext js,ejs --legacy-watch app.js",
     "test": "cross-env NODE_ENV=test jest --verbose --silent --detectOpenHandles",
-    "test:watch":  "npm run test  -- --watch"
+    "test:watch": "npm run test  -- --watch",
+    "lint": "standard",
+    "lint:fix": "standard --fix"
   },
   "repository": {
     "type": "git",
@@ -33,9 +35,14 @@
     "pg": "^8.16.0"
   },
   "devDependencies": {
+    "globals": "^16.2.0",
     "jest": "^30.0.0",
     "nodemon": "^3.1.9",
+    "standard": "^17.1.2",
     "supertest": "^7.1.1"
+  },
+  "eslintConfig": {
+    "extends": "./node_modules/standard/eslintrc.json"
   },
   "jest": {
     "testEnvironment": "node"
