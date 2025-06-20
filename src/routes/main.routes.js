@@ -1,7 +1,7 @@
 const express = require('express')
-const mainControllers = require('../controllers/main.controllers')
+const main_controllers = require('../controllers/main.controllers')
 const router = express.Router()
 
-router.get('/', mainControllers.home)
+router.get('/', main_controllers.home)
 
 module.exports = router

@@ -3,13 +3,13 @@ require('dotenv').config()
 const express = require('express')
 const app = express()
 const path = require('path')
-const { initSession, setIsLogged } = require('./src/utils/sessions')
+const { init_session, set_is_logged } = require('./src/utils/sessions')
 
-const mainRoutes = require('./src/routes/main.routes')
-const shopRoutes = require('./src/routes/shop.routes')
-const dataRoutes = require('./src/routes/data.routes')
-const authRoutes = require('./src/routes/auth.routes')
-const userRoutes = require('./src/routes/user.routes')
+const main_routes = require('./src/routes/main.routes')
+const shop_routes = require('./src/routes/shop.routes')
+const data_routes = require('./src/routes/data.routes')
+const auth_routes = require('./src/routes/auth.routes')
+const user_routes = require('./src/routes/user.routes')
 
 // Information
 const IP = process.env.IP || '0.0.0.0'
@@ -21,17 +21,15 @@ app.set('views', path.resolve(__dirname, './src/views'))
 
 app.use(express.static('public'))
 app.use(express.urlencoded())
-app.use(initSession())
-app.use(setIsLogged())
+app.use(init_session())
+app.use(set_is_logged())
 
-app.use('/auth', authRoutes)
-app.use('/user', userRoutes)
-app.use('/shop', shopRoutes)
-app.use('/data', dataRoutes)
-app.use('/', mainRoutes)
+app.use('/auth', auth_routes)
+app.use('/user', user_routes)
+app.use('/shop', shop_routes)
+app.use('/data', data_routes)
+app.use('/', main_routes)
 
-const server = app.listen(PORT, () => {
-  console.log(`Servidor corriendo en http://${IP}:${PORT}`)
-})
+const server = app.listen(PORT, () => console.log(`Servidor corriendo en http://${IP}:${PORT}`))
 
 module.exports = { app, server }

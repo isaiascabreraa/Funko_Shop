@@ -2,30 +2,30 @@ const login = async (req, res) => {
   res.render('./pages/login.ejs', { error: null })
 }
 
-const loginSubmit = async (req, res) => {
+const login_submit = async (req, res) => {
   try {
-    const { authenticateUser } = require('../models/authentication.model')
+    const { authenticate_user } = require('../models/authentication.model')
 
     const { email, password } = req.body
     if (!email || !password) {
       return res.render('./pages/register.ejs', { error: 'Todos los campos son obligatorios' })
     }
 
-    const result = await authenticateUser(email, password)
+    const result = await authenticate_user(email, password)
 
     if (result.status === 'OK') {
-      res.locals.isLogged = true
-      req.session.isLogged = true
-      req.session.userId = result.user.id
+      res.locals.is_logged = true
+      req.session.is_logged = true
+      req.session.user_id = result.user.id
       return res.redirect('/')
     }
 
-    req.session.isLogged = false
-    res.locals.isLogged = false
+    req.session.is_logged = false
+    res.locals.is_logged = false
 
     return res.render('./pages/login.ejs', { error: 'Email y/o contraseña incorrectos. Intente nuevamente' })
   } catch (error) {
-    console.error('Error en loginSubmit:', error)
+    console.error('Error en login_submit:', error)
     return res.render('./pages/login.ejs', { error: 'Error inesperado, intente nuevamente.' })
   }
 }
@@ -34,16 +34,16 @@ const register = (req, res) => {
   res.render('./pages/register.ejs')
 }
 
-const registerSubmit = async (req, res) => {
+const register_submit = async (req, res) => {
   try {
-    const { registerUser } = require('../models/authentication.model')
+    const { register_user } = require('../models/authentication.model')
 
     const data = req.body
     if (!data.email || !data.password) {
       return res.render('./pages/register.ejs', { error: 'Todos los campos son obligatorios' })
     }
 
-    const result = await registerUser(data)
+    const result = await register_user(data)
     if (result.status === 'USER_ALREADY_EXISTS') {
       return res.render('./pages/register.ejs', { error: 'Ya existe un usuario con ese email.' })
     }
@@ -52,12 +52,12 @@ const registerSubmit = async (req, res) => {
       return res.render('./pages/register.ejs', { error: 'Ocurrió un error al registrar.' })
     }
 
-    req.session.isLogged = true
-    req.session.userId = result.userId
-    res.locals.isLogged = true
+    req.session.is_logged = true
+    req.session.user_id = result.user_id
+    res.locals.is_logged = true
     return res.redirect('/')
   } catch (error) {
-    console.error('Error en registerSubmit:', error)
+    console.error('Error en register_submit:', error)
     return res.render('./pages/register.ejs', { error: 'Error inesperado, intente nuevamente.' })
   }
 }
@@ -69,8 +69,8 @@ const logout = (req, res) => {
 
 module.exports = {
   login,
-  loginSubmit,
+  login_submit,
   register,
-  registerSubmit,
+  register_submit,
   logout
 }

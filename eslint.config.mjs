@@ -17,7 +17,7 @@ export default defineConfig([
       'comma-dangle': ['error', 'never'],
       'no-multiple-empty-lines': ['error', { max: 1 }],
       'eol-last': ['error', 'always'],
-      camelcase: ['error', { properties: 'always' }]
+      camelcase: 'off'
     }
   },
 

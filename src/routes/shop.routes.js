@@ -1,8 +1,8 @@
 const express = require('express')
-const shopControllers = require('../controllers/shop.controllers')
+const shop_controllers = require('../controllers/shop.controllers')
 const router = express.Router()
 
-router.get('/item/:id', shopControllers.item)
-router.get('/', shopControllers.shop)
+router.get('/item/:id', shop_controllers.item)
+router.get('/', shop_controllers.shop)
 
 module.exports = router
