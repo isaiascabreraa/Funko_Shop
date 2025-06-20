@@ -1,8 +1,8 @@
-jest.mock('../../src/models/characters.model')
+jest.mock('../src/models/characters.model')
 
-const charactersModel = require('../../src/models/characters.model')
+const charactersModel = require('../src/models/characters.model')
 const request = require('supertest')
-const { app } = require('../../app')
+const { app } = require('../app')
 
 describe('GET /shop/item/:id', () => {
   it('debería renderizar la vista con los datos correctos', async () => {
