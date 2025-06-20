@@ -138,10 +138,10 @@ const add_character = async (data, files, user_id) => {
 
   const payments = data.cuotas + ' CUOTAS SIN INTERES'
   const result = await conn.query(
-        `INSERT INTO products (brand_id, name, price, payments, description, stock, user_id)
+    `INSERT INTO products (brand_id, name, price, payments, description, stock, user_id)
         VALUES ($1, $2, $3, $4, $5, $6, $7)
         RETURNING id`,
-        [brand_id, data.nombre, data.precio, payments, data.descripcion, data.stock, user_id])
+    [brand_id, data.nombre, data.precio, payments, data.descripcion, data.stock, user_id])
 
   const productId = result.rows[0].id
   if (files && files.length > 0) {
@@ -149,9 +149,9 @@ const add_character = async (data, files, user_id) => {
     const secondary_image = '../../Multimedia/FunkosCajas/' + files[1].originalname
 
     await conn.query(
-        `INSERT INTO content (product_id, primary_image, secondary_image)
+      `INSERT INTO content (product_id, primary_image, secondary_image)
         VALUES ($1, $2, $3)`,
-        [productId, primary_image, secondary_image])
+      [productId, primary_image, secondary_image])
   }
 
   return productId
