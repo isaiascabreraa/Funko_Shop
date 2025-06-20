@@ -6,7 +6,7 @@ function initSession () {
 
 function setIsLogged () {
   return (req, res, next) => {
-    res.locals.is_logged = req.session.is_logged || false
+    res.locals.isLogged = req.session.isLogged || false
     next()
   }
 }

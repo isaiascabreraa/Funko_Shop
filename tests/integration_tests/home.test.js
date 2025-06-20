@@ -1,4 +1,3 @@
-/* eslint-env jest */
 const request = require('supertest')
 const { app, server } = require('../../app')
 const { conn } = require('../../src/config/connections')
