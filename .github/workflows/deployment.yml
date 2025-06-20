@@ -3,6 +3,7 @@ name: Deployment Pipeline
 on:
     push:
         branches:
+            - main
             - development
 jobs:
     deploy:
@@ -16,5 +17,5 @@ jobs:
             node-version: 18
         - name: Install dependencies
           run: npm install
-        - name: Lint
+        - name: Linter
           run: npm run lint
