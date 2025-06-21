@@ -1,5 +1,5 @@
 require('dotenv').config()
-const app = require('./app')
+const { app } = require('./app')
 
 // Information
 const IP = process.env.IP || '0.0.0.0'

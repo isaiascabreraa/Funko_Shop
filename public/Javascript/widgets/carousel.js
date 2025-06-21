@@ -1,7 +1,4 @@
-import Swiper from 'swiper'
-import 'swiper/css'
-
-// eslint-disable-next-line no-unused-vars
+// eslint-disable-next-line no-unused-vars, no-undef
 const swiper = new Swiper('.carousel_wrapper.swiper', {
   slidesPerView: 8,
   spaceBetween: 20,
@@ -33,4 +30,3 @@ const swiper = new Swiper('.carousel_wrapper.swiper', {
     }
   }
 })
-
